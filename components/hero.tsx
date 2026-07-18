@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "@/components/animated-counter";
@@ -13,49 +14,22 @@ export function Hero() {
         style={{ background: "radial-gradient(circle, #2563EB 0%, transparent 65%)" }}
       />
 
-      <svg
-        viewBox="0 0 200 200"
-        className="pointer-events-none absolute right-[-40px] top-9 hidden h-[420px] w-[420px] opacity-90 md:block"
+      <motion.div
+        initial={{ opacity: 0, scale: 0.85, rotate: -6 }}
+        animate={{ opacity: 0.9, scale: 1, rotate: 0 }}
+        transition={{ duration: 1.2, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+        className="pointer-events-none absolute right-[-60px] top-4 hidden h-[380px] w-[380px] md:block"
+        style={{ mixBlendMode: "screen" }}
       >
-        <motion.path
-          d="M20 20L100 100M20 20V60M20 20H60"
-          stroke="#4C82FF"
-          strokeWidth="14"
-          strokeLinecap="square"
-          initial={{ opacity: 0, x: -70, y: -70, rotate: -8 }}
-          animate={{ opacity: 1, x: 0, y: 0, rotate: 0 }}
-          transition={{ duration: 1.1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        <Image
+          src="/logo.png"
+          alt=""
+          fill
+          sizes="380px"
+          className="object-contain"
+          priority
         />
-        <motion.path
-          d="M180 20L100 100M180 20V60M180 20H140"
-          stroke="#C8FF00"
-          strokeWidth="14"
-          strokeLinecap="square"
-          initial={{ opacity: 0, x: 70, y: -70, rotate: 8 }}
-          animate={{ opacity: 1, x: 0, y: 0, rotate: 0 }}
-          transition={{ duration: 1.1, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
-        />
-        <motion.path
-          d="M20 180L100 100M20 180V140M20 180H60"
-          stroke="#C8FF00"
-          strokeWidth="14"
-          strokeLinecap="square"
-          opacity={0.55}
-          initial={{ opacity: 0, x: -70, y: 70, rotate: -8 }}
-          animate={{ opacity: 0.55, x: 0, y: 0, rotate: 0 }}
-          transition={{ duration: 1.1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-        />
-        <motion.path
-          d="M180 180L100 100M180 180V140M180 180H140"
-          stroke="#4C82FF"
-          strokeWidth="14"
-          strokeLinecap="square"
-          opacity={0.55}
-          initial={{ opacity: 0, x: 70, y: 70, rotate: 8 }}
-          animate={{ opacity: 0.55, x: 0, y: 0, rotate: 0 }}
-          transition={{ duration: 1.1, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
-        />
-      </svg>
+      </motion.div>
 
       <div className="relative z-10 mx-auto max-w-3xl px-5 text-center md:px-7">
         <motion.div
