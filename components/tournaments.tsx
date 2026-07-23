@@ -87,7 +87,6 @@ export function Tournaments() {
                     <div className="text-[10.5px] uppercase tracking-wider text-muted-2">Prize pool</div>
                     <div className="font-mono-brand text-[15px] font-bold text-brand-green">{t.prize}</div>
                   </div>
-                  <Countdown target={t.target} />
                 </div>
 
                 <Button
