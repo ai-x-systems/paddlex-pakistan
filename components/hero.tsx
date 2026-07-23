@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "@/components/animated-counter";
+import { SignatureBookingAnimation } from "@/components/signature-booking-animation";
 
 export function Hero() {
   return (
@@ -91,8 +92,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="mb-16 flex flex-wrap items-center justify-center gap-3.5"
+          className="relative mb-16 flex flex-wrap items-center justify-center gap-3.5"
         >
+          <SignatureBookingAnimation />
           <Button size="lg" asChild>
             <a href="#booking-preview">Book a Court</a>
           </Button>
