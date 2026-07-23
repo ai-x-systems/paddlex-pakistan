@@ -91,29 +91,14 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="mb-5 flex flex-wrap items-center justify-center gap-3.5"
+          className="mb-16 flex flex-wrap items-center justify-center gap-3.5"
         >
           <Button size="lg" asChild>
             <a href="#booking-preview">Book a Court</a>
           </Button>
           <Button size="lg" variant="outline" asChild>
-            <a href="#join-match">Find Players</a>
+            <a href="#facilities">View Facilities</a>
           </Button>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.36 }}
-          className="mb-16"
-        >
-          
-            href="#coaches"
-            className="inline-flex items-center gap-1.5 text-[13.5px] font-medium text-muted transition-colors hover:text-brand-green"
-          >
-            Explore Coaches
-            <span aria-hidden>→</span>
-          </a>
         </motion.div>
 
         <div className="mx-auto grid max-w-md grid-cols-3 border-t border-border-soft pt-8">
