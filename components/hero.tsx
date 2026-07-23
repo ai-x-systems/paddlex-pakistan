@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { HeroShowcase } from "@/components/hero-showcase";
+import { HeroRacketBall } from "@/components/hero-racket-ball";
 
 export function Hero() {
   return (
@@ -15,7 +16,10 @@ export function Hero() {
       />
 
       <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-14 px-5 md:px-7 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
-        <div className="mx-auto max-w-3xl text-center lg:mx-0 lg:max-w-none lg:text-left">
+        <div className="relative mx-auto max-w-3xl text-center lg:mx-0 lg:max-w-none lg:text-left">
+          <div className="pointer-events-none absolute -right-16 top-0 hidden h-[220px] w-[220px] lg:block">
+            <HeroRacketBall />
+          </div>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
