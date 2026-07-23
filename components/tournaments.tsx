@@ -5,14 +5,13 @@ import { Trophy, Users2 } from "lucide-react";
 import { SectionHead } from "@/components/section-head";
 import { Button } from "@/components/ui/button";
 import { PhotoTile } from "@/components/photo-tile";
-import { Countdown } from "@/components/countdown";
 import { useToast } from "@/components/toast-provider";
 
 const now = Date.now();
 
 const tournaments = [
   {
-    name: "PadelX Summer Cup",
+    name: "Padel X Summer Cup",
     format: "Doubles Knockout",
     date: "Sat, 2 Aug",
     prize: "PKR 150,000",
