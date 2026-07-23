@@ -39,7 +39,6 @@ export default function Home() {
         <div className="mx-auto h-px max-w-6xl bg-gradient-to-r from-transparent via-border to-transparent" />
         <Facilities />
         <WhyPaddleX />
-        <Coaches />
         <JoinMatch />
         <BookingPreview />
         <Tournaments />
