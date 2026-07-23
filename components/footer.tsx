@@ -81,7 +81,7 @@ export function Footer() {
           </div>
         </div>
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border-soft pt-6 text-xs text-muted-2">
-          <span>© 2026 Padel X Pakistan. All rights reserved.</span>
+          <span>© 2026 PadelX Pakistan. All rights reserved.</span>
           <span className="font-mono-brand">thepadelx.com</span>
         </div>
       </div>
