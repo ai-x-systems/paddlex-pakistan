@@ -3,22 +3,22 @@ import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
 import { Facilities } from "@/components/facilities";
 import { WhyPaddleX } from "@/components/why-paddlex";
+import { Coaches } from "@/components/coaches";
+import { JoinMatch } from "@/components/join-match";
 import { BookingPreview } from "@/components/booking-preview";
-import { Membership } from "@/components/membership";
-import { Coaching } from "@/components/coaching";
+import { Tournaments } from "@/components/tournaments";
+import { ClubManagement } from "@/components/club-management";
 import { Gallery } from "@/components/gallery";
-import { Testimonials } from "@/components/testimonials";
-import { AdminPreview } from "@/components/admin-preview";
-import { AISection } from "@/components/ai-section";
-import { ComingSoon } from "@/components/coming-soon";
+import { GoogleReviews } from "@/components/google-reviews";
 import { FAQ } from "@/components/faq";
+import { Contact } from "@/components/contact";
 import { CTA } from "@/components/cta";
 import { Footer } from "@/components/footer";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SportsActivityLocation",
-  name: "PaddleX Pakistan",
+  name: "Padel X Pakistan",
   description:
     "Premium padel courts, football grounds, coaching academy and online booking platform in Karachi.",
   address: {
@@ -42,15 +42,15 @@ export default function Home() {
         <div className="mx-auto h-px max-w-6xl bg-gradient-to-r from-transparent via-border to-transparent" />
         <Facilities />
         <WhyPaddleX />
+        <Coaches />
+        <JoinMatch />
         <BookingPreview />
-        <Membership />
-        <Coaching />
+        <Tournaments />
+        <ClubManagement />
         <Gallery />
-        <Testimonials />
-        <AdminPreview />
-        <AISection />
-        <ComingSoon />
+        <GoogleReviews />
         <FAQ />
+        <Contact />
         <CTA />
       </main>
       <Footer />
