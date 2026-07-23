@@ -1,4 +1,3 @@
-import { ToastProvider } from "@/components/toast-provider";
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
 import { Facilities } from "@/components/facilities";
@@ -31,7 +30,7 @@ const jsonLd = {
 
 export default function Home() {
   return (
-    <ToastProvider>
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -54,6 +53,6 @@ export default function Home() {
         <CTA />
       </main>
       <Footer />
-    </ToastProvider>
+    </>
   );
 }
