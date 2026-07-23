@@ -7,10 +7,10 @@ import { Button } from "@/components/ui/button";
 
 const links = [
   { href: "#facilities", label: "Facilities" },
-  { href: "#coaches", label: "Coaches" },
-  { href: "#join-match", label: "Find Players" },
-  { href: "#tournaments", label: "Tournaments" },
+  { href: "#membership", label: "Membership" },
+  { href: "#coaching", label: "Coaching" },
   { href: "#gallery", label: "Gallery" },
+  { href: "#faq", label: "FAQ" },
 ];
 
 export function Navbar() {
@@ -32,8 +32,8 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Button variant="outline" size="sm" className="hidden md:inline-flex" asChild>
-            <a href="#contact">Contact</a>
+          <Button variant="outline" size="sm" className="hidden md:inline-flex">
+            Contact
           </Button>
           <Button size="sm" asChild>
             <a href="#booking-preview">Book Now</a>
@@ -51,7 +51,7 @@ export function Navbar() {
       {open && (
         <div className="mx-auto flex max-w-6xl flex-col gap-0.5 border-t border-border-soft px-5 pb-4">
           {links.map((l) => (
-            
+            <a
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
