@@ -2,7 +2,6 @@ import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
 import { Facilities } from "@/components/facilities";
 import { WhyPaddleX } from "@/components/why-paddlex";
-import { Coaches } from "@/components/coaches";
 import { JoinMatch } from "@/components/join-match";
 import { BookingPreview } from "@/components/booking-preview";
 import { Tournaments } from "@/components/tournaments";
@@ -10,7 +9,6 @@ import { ClubManagement } from "@/components/club-management";
 import { Gallery } from "@/components/gallery";
 import { GoogleReviews } from "@/components/google-reviews";
 import { FAQ } from "@/components/faq";
-import { Contact } from "@/components/contact";
 import { CTA } from "@/components/cta";
 import { Footer } from "@/components/footer";
 
