@@ -1,10 +1,12 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { SectionHead } from "@/components/section-head";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/toast-provider";
+import { SignatureBookingAnimation } from "@/components/signature-booking-animation";
 
 type CourtKey = "A" | "B" | "C" | "F";
 
@@ -30,6 +32,7 @@ export function BookingPreview() {
   const [dayIdx, setDayIdx] = useState(0);
   const [slot, setSlot] = useState<string | null>(null);
   const toast = useToast();
+  const router = useRouter();
 
   const booked = useMemo(() => bookedFor(court, dayIdx), [court, dayIdx]);
   const dateLabel = `${dateNums[dayIdx]} Jul`;
@@ -49,25 +52,51 @@ export function BookingPreview() {
       toast("Select a time slot first");
       return;
     }
-    toast("Demo booking created — payment & confirmation ship in Phase 2 ✓");
+    router.push(`/booking?court=${court}&day=${dayIdx}&slot=${slot}`);
   }
 
   return (
     <section id="booking-preview" className="py-24 md:py-28">
       <div className="mx-auto max-w-6xl px-5 md:px-7">
         <SectionHead
-          eyebrow="01 · Sport → Court → Time → Pay"
-          title="Booking, previewed."
-          sub="This is a live interface preview with sample availability — the real engine ships in Phase 2."
+          eyebrow="Step 1 of 4"
+          title="Booking starts here."
+          sub="Pick your court and time below — coach selection, teaming, and payment continue in the full booking experience."
         />
+
+        <div className="mb-6 flex items-center gap-2 sm:mb-7">
+          {[
+            { n: 1, label: "Court & Time", active: true },
+            { n: 2, label: "Coach", active: false },
+            { n: 3, label: "Team Up", active: false },
+            { n: 4, label: "Payment", active: false },
+          ].map((s, i, arr) => (
+            <div key={s.n} className="flex flex-1 items-center gap-2">
+              <div className="flex items-center gap-2">
+                <span
+                  className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full font-mono-brand text-[12px] font-bold ${
+                    s.active ? "bg-brand-green text-bg" : "border border-border text-muted-2"
+                  }`}
+                >
+                  {s.n}
+                </span>
+                <span className={`hidden text-[12.5px] sm:inline ${s.active ? "font-semibold text-ink" : "text-muted-2"}`}>
+                  {s.label}
+                </span>
+              </div>
+              {i < arr.length - 1 && <span className="h-px flex-1 bg-border-soft" />}
+            </div>
+          ))}
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
-          className="overflow-hidden rounded-3xl border border-border bg-gradient-to-b from-surface to-bg-1"
+          className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-b from-surface to-bg-1"
         >
+          <SignatureBookingAnimation />
           <div className="flex items-center justify-between border-b border-border-soft px-6 py-5">
             <div className="text-[13.5px] font-semibold">{courtNames[court]} &middot; Karachi</div>
             <div className="flex gap-1.5">
@@ -139,57 +168,56 @@ export function BookingPreview() {
                   );
                 })}
               </div>
-
-              <div className="mt-4.5 flex flex-wrap gap-4">
-                <Legend color="bg-bg-1 border border-border" label="Available" />
-                <Legend color="bg-brand-green" label="Selected" />
-                <Legend color="bg-border opacity-50" label="Booked" />
+              <div className="legend mt-4.5 flex flex-wrap gap-4">
+                <div className="flex items-center gap-1.5 text-[11.5px] text-muted-2">
+                  <div className="h-[9px] w-[9px] rounded-[3px] border border-border bg-bg-1" />
+                  Available
+                </div>
+                <div className="flex items-center gap-1.5 text-[11.5px] text-muted-2">
+                  <div className="h-[9px] w-[9px] rounded-[3px] bg-brand-green" />
+                  Selected
+                </div>
+                <div className="flex items-center gap-1.5 text-[11.5px] text-muted-2">
+                  <div className="h-[9px] w-[9px] rounded-[3px] bg-border opacity-50" />
+                  Booked
+                </div>
               </div>
             </div>
-
             <div className="bg-white/[0.015] p-6">
               <div className="mb-4 font-mono-brand text-[12px] uppercase tracking-wider text-muted-2">
                 Booking summary
               </div>
-              <SummaryRow label="Court" value={courtNames[court]} />
-              <SummaryRow label="Date" value={dateLabel} />
-              <SummaryRow label="Time" value={slot ? `${slot} – ${endTime}` : "—"} />
-              <SummaryRow label="Rate" value={`PKR ${rate.toLocaleString()}/hr`} />
+              <div className="flex justify-between border-b border-border-soft py-2.5 text-[13.5px] text-muted">
+                <span>Court</span>
+                <span className="font-mono-brand text-ink">{courtNames[court]}</span>
+              </div>
+              <div className="flex justify-between border-b border-border-soft py-2.5 text-[13.5px] text-muted">
+                <span>Date</span>
+                <span className="font-mono-brand text-ink">{dateLabel}</span>
+              </div>
+              <div className="flex justify-between border-b border-border-soft py-2.5 text-[13.5px] text-muted">
+                <span>Time</span>
+                <span className="font-mono-brand text-ink">{slot ? `${slot} – ${endTime}` : "—"}</span>
+              </div>
+              <div className="flex justify-between border-b border-border-soft py-2.5 text-[13.5px] text-muted">
+                <span>Rate</span>
+                <span className="font-mono-brand text-ink">PKR {rate.toLocaleString()}/hr</span>
+              </div>
               <div className="flex items-center justify-between py-4.5 text-[15px] font-bold">
                 <span>Total</span>
-                <span className="font-mono-brand text-brand-green">
-                  PKR {slot ? rate.toLocaleString() : "0"}
-                </span>
+                <span className="font-mono-brand text-brand-green">PKR {slot ? rate.toLocaleString() : "0"}</span>
               </div>
               <Button className="w-full" onClick={bookNow}>
-                Book Now
+                Continue
               </Button>
               <p className="mt-3.5 text-[11.5px] leading-relaxed text-muted-2">
-                Interactive preview only — no payment is processed. The production build connects
-                this screen to live availability, Stripe/PayFast, and instant confirmation.
+                Interactive preview — this is step 1 of the full flow. Coach selection, teaming
+                options, and secure payment (Stripe/PayFast) continue from here in the live product.
               </p>
             </div>
           </div>
         </motion.div>
       </div>
     </section>
-  );
-}
-
-function SummaryRow({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex justify-between border-b border-border-soft py-2.5 text-[13.5px] text-muted">
-      <span>{label}</span>
-      <span className="font-mono-brand text-ink">{value}</span>
-    </div>
-  );
-}
-
-function Legend({ color, label }: { color: string; label: string }) {
-  return (
-    <div className="flex items-center gap-1.5 text-[11.5px] text-muted-2">
-      <span className={`h-[9px] w-[9px] rounded-[3px] ${color}`} />
-      {label}
-    </div>
   );
 }
