@@ -13,25 +13,25 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://paddlex-pakistan.vercel.app";
+const siteUrl = "https://thepadelx.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "PaddleX Pakistan | Premium Padel & Football Booking",
+  title: "Padel X Pakistan | Premium Padel & Football Booking",
   description:
     "Premium padel courts, football grounds, coaching academy and online booking platform in Karachi.",
   openGraph: {
-    title: "PaddleX Pakistan | Premium Padel & Football Booking",
+    title: "Padel X Pakistan | Premium Padel & Football Booking",
     description:
       "Premium padel courts, football grounds, coaching academy and online booking platform in Karachi.",
     url: siteUrl,
-    siteName: "PaddleX Pakistan",
+    siteName: "Padel X Pakistan",
     locale: "en_PK",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "PaddleX Pakistan | Premium Padel & Football Booking",
+    title: "Padel X Pakistan | Premium Padel & Football Booking",
     description:
       "Premium padel courts, football grounds, coaching academy and online booking platform in Karachi.",
   },
