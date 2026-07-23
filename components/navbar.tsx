@@ -1,16 +1,23 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 
 const links = [
   { href: "#facilities", label: "Facilities" },
-  { href: "#membership", label: "Membership" },
-  { href: "#coaching", label: "Coaching" },
   { href: "#gallery", label: "Gallery" },
   { href: "#faq", label: "FAQ" },
+];
+
+// Real app routes — not anchor links, so they need next/link and a real href.
+const appLinks = [
+  { href: "/booking", label: "Booking" },
+  { href: "/wallet", label: "Wallet" },
+  { href: "/notifications", label: "Notifications" },
+  { href: "/admin", label: "Admin" },
 ];
 
 export function Navbar() {
@@ -28,6 +35,11 @@ export function Navbar() {
             <a key={l.href} href={l.href} className="relative transition-colors hover:text-ink">
               {l.label}
             </a>
+          ))}
+          {appLinks.map((l) => (
+            <Link key={l.href} href={l.href} className="relative transition-colors hover:text-ink">
+              {l.label}
+            </Link>
           ))}
         </nav>
 
@@ -59,6 +71,16 @@ export function Navbar() {
             >
               {l.label}
             </a>
+          ))}
+          {appLinks.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              onClick={() => setOpen(false)}
+              className="border-b border-border-soft py-3 text-[15px] text-muted"
+            >
+              {l.label}
+            </Link>
           ))}
         </div>
       )}
