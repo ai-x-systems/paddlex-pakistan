@@ -27,7 +27,7 @@ export function Footer() {
           <div>
             <Logo />
             <p className="mt-3.5 max-w-[260px] text-[13.5px] leading-relaxed text-muted-2">
-              Pakistan&apos;s premium padel &amp; football destination — Karachi.
+              Pakistan&apos;s premium padel, pickleball &amp; futsal destination — Karachi.
             </p>
           </div>
 
