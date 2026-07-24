@@ -10,7 +10,6 @@ const items = [
   { icon: Users, title: "Professional Coaching", desc: "Structured programs for kids, adults, and private 1:1 sessions with certified coaches." },
   { icon: ShieldCheck, title: "Secure Payments", desc: "Card, wallet or bank transfer — every payment generates an instant invoice and receipt." },
   { icon: Heart, title: "Friendly Community", desc: "Leaderboards, tournaments and a growing player base you'll actually recognize." },
-  { icon: Sparkles, title: "Future AI Assistant", desc: "A concierge that answers instantly and hands off to reception the moment you're ready to book." },
 ];
 
 export function WhyPaddleX() {
