@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     q: "Do you host tournaments?",
-    a: "Regularly. Registration opens on the site, with brackets, live results and a season leaderboard for both padel and football events.",
+    a: "Regularly. Registration opens on the site, with brackets, live results and a season leaderboard for padel, pickleball and futsal events.",
   },
   {
     q: "Can companies book events?",
