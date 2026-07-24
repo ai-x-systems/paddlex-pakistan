@@ -18,13 +18,13 @@ const siteUrl = "https://thepadelx.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Padel X Pakistan | Premium Padel & Football Booking",
+  title: "Padel X Pakistan | Premium Padel, Pickleball & Futsal Booking",
   description:
-    "Premium padel courts, football grounds, coaching academy and online booking platform in Karachi.",
+    "Premium padel, pickleball and futsal courts, coaching academy and online booking platform in Karachi.",
   openGraph: {
-    title: "Padel X Pakistan | Premium Padel & Football Booking",
+    title: "Padel X Pakistan | Premium Padel, Pickleball & Futsal Booking",
     description:
-      "Premium padel courts, football grounds, coaching academy and online booking platform in Karachi.",
+      "Premium padel, pickleball and futsal courts, coaching academy and online booking platform in Karachi.",
     url: siteUrl,
     siteName: "Padel X Pakistan",
     locale: "en_PK",
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Padel X Pakistan | Premium Padel & Football Booking",
+    title: "Padel X Pakistan | Premium Padel, Pickleball & Futsal Booking",
     description:
-      "Premium padel courts, football grounds, coaching academy and online booking platform in Karachi.",
+      "Premium padel, pickleball and futsal courts, coaching academy and online booking platform in Karachi.",
   },
   alternates: { canonical: siteUrl },
   robots: { index: true, follow: true },
