@@ -92,7 +92,7 @@ export function JoinMatch() {
                 <Button
                   variant="outline"
                   className="mt-auto w-full"
-                  onClick={() => toast("Join request sent — the group will confirm in the app")}
+                  onClick={() => toast("Join request sent — the group will confirm via notification")}
                 >
                   <Users className="h-4 w-4" /> Join Match
                 </Button>
@@ -115,7 +115,7 @@ export function JoinMatch() {
           <div className="flex flex-wrap gap-2.5">
             <Button
               variant="outline"
-              onClick={() => toast("Full match board arrives with the customer app")}
+              onClick={() => toast("Full match board arrives with the customer dashboard")}
             >
               Browse Open Matches
             </Button>
