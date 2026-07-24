@@ -17,14 +17,14 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-14 px-5 md:px-7 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
         <div className="relative mx-auto max-w-3xl text-center lg:mx-0 lg:max-w-none lg:text-left">
-          <div className="pointer-events-none absolute -right-16 top-0 hidden h-[220px] w-[220px] lg:block">
+          <div className="pointer-events-none absolute right-4 top-[104px] z-0 hidden h-[190px] w-[190px] lg:block">
             <HeroRacketBall />
           </div>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-white/[0.02] px-4 py-1.5 text-[12.5px] text-muted"
+            className="relative z-10 mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-white/[0.02] px-4 py-1.5 text-[12.5px] text-muted"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-brand-green shadow-[0_0_10px_#C8FF00]" />
             Now booking &middot; Karachi
@@ -34,7 +34,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="mb-5 text-[38px] font-black leading-[1.03] tracking-[-0.035em] sm:text-[52px] md:text-[64px]"
+            className="relative z-10 mb-5 text-[38px] font-black leading-[1.03] tracking-[-0.035em] sm:text-[52px] md:text-[64px]"
           >
             Pakistan&apos;s Premium <span className="text-gradient">Padel &amp; Football</span> Experience
           </motion.h1>
