@@ -8,8 +8,10 @@ import { Button } from "@/components/ui/button";
 // On-page anchor links — sections that exist on the homepage.
 const links = [
   { href: "#facilities", label: "Facilities" },
-  { href: "#coaching", label: "Coaching" },
+  { href: "#academy", label: "Academy" },
+  { href: "#coaches", label: "Coaches" },
   { href: "#gallery", label: "Gallery" },
+  { href: "#location", label: "Location" },
   { href: "#faq", label: "FAQ" },
 ];
 
