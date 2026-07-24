@@ -45,8 +45,8 @@ const glowVariants = {
 };
 
 const idleFloat = {
-  y: [0, -12, 0],
-  transition: { duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 1.6 },
+  y: [0, -8, 0],
+  transition: { duration: 2.6, repeat: Infinity, ease: "easeInOut", delay: 1.6 },
 };
 
 // Large, standalone hero centerpiece — a richer, shaded padel racket + ball
@@ -57,10 +57,10 @@ export function HeroRacketBall() {
   const rawY = useMotionValue(0);
   const springX = useSpring(rawX, { stiffness: 220, damping: 24, mass: 0.25 });
   const springY = useSpring(rawY, { stiffness: 220, damping: 24, mass: 0.25 });
-  const rotateX = useTransform(springY, [-1, 1], [18, -18]);
-  const rotateY = useTransform(springX, [-1, 1], [-24, 24]);
-  const ballShiftX = useTransform(springX, [-1, 1], [-14, 14]);
-  const ballShiftY = useTransform(springY, [-1, 1], [-11, 11]);
+  const rotateX = useTransform(springY, [-1, 1], [7, -7]);
+  const rotateY = useTransform(springX, [-1, 1], [-9, 9]);
+  const ballShiftX = useTransform(springX, [-1, 1], [-5, 5]);
+  const ballShiftY = useTransform(springY, [-1, 1], [-4, 4]);
   const wrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
