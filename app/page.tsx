@@ -1,13 +1,15 @@
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
 import { Facilities } from "@/components/facilities";
-import { WhyPaddleX } from "@/components/why-paddlex";
+import { WhyPadelX } from "@/components/why-padelx";
 import { JoinMatch } from "@/components/join-match";
 import { BookingPreview } from "@/components/booking-preview";
 import { Tournaments } from "@/components/tournaments";
 import { ClubManagement } from "@/components/club-management";
-import { Coaching } from "@/components/coaching";
+import { Academy } from "@/components/academy";
+import { Coaches } from "@/components/coaches";
 import { Gallery } from "@/components/gallery";
+import { Location } from "@/components/location";
 import { GoogleReviews } from "@/components/google-reviews";
 import { FAQ } from "@/components/faq";
 import { CTA } from "@/components/cta";
@@ -39,13 +41,15 @@ export default function Home() {
         <Hero />
         <div className="mx-auto h-px max-w-6xl bg-gradient-to-r from-transparent via-border to-transparent" />
         <Facilities />
-        <WhyPaddleX />
+        <WhyPadelX />
         <JoinMatch />
         <BookingPreview />
         <Tournaments />
         <ClubManagement />
-        <Coaching />
+        <Academy />
+        <Coaches />
         <Gallery />
+        <Location />
         <GoogleReviews />
         <FAQ />
         <CTA />
