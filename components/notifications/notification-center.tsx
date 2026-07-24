@@ -21,7 +21,7 @@ const customerNotifs: Notif[] = [
   { icon: Wallet, title: "Remaining Balance", desc: "PKR 45,000 remaining after your last booking", time: "2 min ago", unread: true, tone: "blue" },
   { icon: AlarmClock, title: "Booking Reminder", desc: "Your session starts in 2 hours — Court A", time: "1 hr ago", tone: "blue" },
   { icon: CreditCard, title: "Payment Successful", desc: "PKR 3,500 paid via Club Credits", time: "3 hr ago", tone: "green" },
-  { icon: XCircle, title: "Booking Cancelled", desc: "Football Ground · Sun 12 Jul — refunded to wallet", time: "2 days ago", tone: "red" },
+  { icon: XCircle, title: "Booking Cancelled", desc: "Futsal Ground · Sun 12 Jul — refunded to wallet", time: "2 days ago", tone: "red" },
 ];
 
 const receptionNotifs: Notif[] = [
