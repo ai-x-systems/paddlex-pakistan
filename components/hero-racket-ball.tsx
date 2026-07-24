@@ -18,8 +18,8 @@ const ballVariants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    x: [0, -60, -120, -190, -240],
-    y: [0, -36, -10, -42, 0],
+    x: [0, -22, -44, -68, -84],
+    y: [0, -14, -4, -16, 0],
     scale: [0.7, 1, 0.9, 1, 0.82],
     transition: { delay: 0.5, duration: 1.1, ease: "easeInOut" },
   },
