@@ -5,7 +5,7 @@ import { PhotoTile } from "@/components/photo-tile";
 
 const items = [
   { img: "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=700&q=80", tone: "blue" as const, h: 280, label: "Court A · Night Session" },
-  { img: "https://images.unsplash.com/photo-1487466365202-1afdb86c764e?auto=format&fit=crop&w=700&q=80", tone: "greenSoft" as const, h: 200, label: "Football Ground" },
+  { img: "https://images.unsplash.com/photo-1487466365202-1afdb86c764e?auto=format&fit=crop&w=700&q=80", tone: "greenSoft" as const, h: 200, label: "Futsal Ground" },
   { img: "https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=700&q=80", tone: "green" as const, h: 230, label: "Court B · Match Day" },
   { img: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=700&q=80", tone: "blueSoft" as const, h: 190, label: "Coaching Session" },
   { img: "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=700&q=80", tone: "blue" as const, h: 240, label: "Tournament Finals" },
