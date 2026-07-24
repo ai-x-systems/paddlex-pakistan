@@ -1,26 +1,9 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { HeroRacketBall } from "@/components/hero-racket-ball";
-
-// Real 3D centerpiece needs a browser/WebGL context, so it's client-only and
-// loaded lazily. While it loads (or if WebGL genuinely isn't available), the
-// existing 2D racket/ball graphic renders instead — same visual idea, just
-// without the dependency, so the hero never shows a blank gap.
-const Hero3DCenterpiece = dynamic(
-  () => import("@/components/hero-3d-centerpiece").then((m) => m.Hero3DCenterpiece),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="relative h-full w-full">
-        <HeroRacketBall />
-      </div>
-    ),
-  }
-);
 
 export function Hero() {
   return (
@@ -28,7 +11,7 @@ export function Hero() {
       <div className="grid-bg pointer-events-none absolute inset-0 opacity-35" />
       <div
         className="pointer-events-none absolute left-1/2 top-[-420px] h-[900px] w-[900px] -translate-x-1/2 rounded-full opacity-[0.16] blur-[140px]"
-        style={{ background: "radial-gradient(circle, #2563EB 0%, transparent 65%)" }}
+        style={{ background: "radial-gradient(circle, #C8FF00 0%, transparent 65%)" }}
       />
 
       <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-14 px-5 md:px-7 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
@@ -98,7 +81,7 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.25 }}
           className="relative mx-auto h-[340px] w-full max-w-[420px] lg:h-[460px]"
         >
-          <Hero3DCenterpiece />
+          <HeroRacketBall />
         </motion.div>
       </div>
     </section>
