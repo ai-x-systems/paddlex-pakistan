@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { HeroRacketBall } from "@/components/hero-racket-ball";
 
 // Stylized, low-poly padel racket + ball. Procedural primitives only — no
 // external model/texture assets, per the brief's "keep it light" guidance.
@@ -84,7 +85,7 @@ export function Hero3DCenterpiece() {
     }
   }, []);
 
-  if (failed) return null;
+  if (failed) return <HeroRacketBall />;
 
   return (
     <Canvas
