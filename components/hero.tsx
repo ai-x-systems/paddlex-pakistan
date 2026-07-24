@@ -17,7 +17,7 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-14 px-5 md:px-7 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
         <div className="relative mx-auto max-w-3xl text-center lg:mx-0 lg:max-w-none lg:text-left">
-          <div className="pointer-events-none absolute right-4 top-[104px] z-0 hidden h-[190px] w-[190px] lg:block">
+          <div className="pointer-events-none absolute -right-6 top-0 z-0 hidden h-[180px] w-[180px] lg:block">
             <HeroRacketBall />
           </div>
           <motion.div
