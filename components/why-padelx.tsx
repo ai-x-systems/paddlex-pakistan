@@ -12,11 +12,11 @@ const items = [
   { icon: Heart, title: "Friendly Community", desc: "Leaderboards, tournaments and a growing player base you'll actually recognize." },
 ];
 
-export function WhyPaddleX() {
+export function WhyPadelX() {
   return (
     <section className="py-24 md:py-28">
       <div className="mx-auto max-w-6xl px-5 md:px-7">
-        <SectionHead eyebrow="Why PaddleX" title="Built like a product, run like a club." />
+        <SectionHead eyebrow="Why Padel X" title="Built like a product, run like a club." />
 
         <div className="grid grid-cols-1 gap-px overflow-hidden rounded-[18px] border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
           {items.map((it, i) => (
