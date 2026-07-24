@@ -7,7 +7,7 @@ import { useToast } from "@/components/toast-provider";
 
 const vouchers = [
   { code: "WELCOME500", desc: "PKR 500 off your next booking", expiry: "Expires 15 Aug", status: "active" as const },
-  { code: "SUMMER10", desc: "10% off Football Ground bookings", expiry: "Expires 31 Aug", status: "active" as const },
+  { code: "SUMMER10", desc: "10% off Futsal Ground bookings", expiry: "Expires 31 Aug", status: "active" as const },
   { code: "REFER1000", desc: "PKR 1,000 referral bonus", expiry: "Used 2 Jul", status: "used" as const },
 ];
 
