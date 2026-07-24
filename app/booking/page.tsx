@@ -6,7 +6,7 @@ import { BookingWizard } from "@/components/booking-flow/wizard";
 
 export const metadata: Metadata = {
   title: "Book a Court | Padel X Pakistan",
-  description: "Book your padel court or football ground in a few taps.",
+  description: "Book your padel, pickleball or futsal court in a few taps.",
 };
 
 export default function BookingPage() {
