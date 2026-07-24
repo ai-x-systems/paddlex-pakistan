@@ -19,7 +19,8 @@ type OpenMatch = {
 const matches: OpenMatch[] = [
   { court: "Court A", date: "Sat, 18 Jul", time: "7:00 PM", level: "Intermediate", filled: 2, need: 2, players: ["FZ", "AK"] },
   { court: "Court C", date: "Sun, 19 Jul", time: "6:00 PM", level: "Beginner friendly", filled: 3, need: 1, players: ["SR", "MH", "TB"] },
-  { court: "Football Ground", date: "Sun, 19 Jul", time: "8:00 PM", level: "Casual 5-a-side", filled: 6, need: 4, players: ["ZK", "NA", "HR", "JW", "PL", "QS"] },
+  { court: "Pickleball Court", date: "Sat, 18 Jul", time: "5:00 PM", level: "Beginner friendly", filled: 2, need: 2, players: ["RM", "AS"] },
+  { court: "Futsal Ground", date: "Sun, 19 Jul", time: "8:00 PM", level: "Casual 5-a-side", filled: 6, need: 4, players: ["ZK", "NA", "HR", "JW", "PL", "QS"] },
 ];
 
 function Avatars({ initials }: { initials: string[] }) {
