@@ -58,8 +58,8 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mx-auto mb-9 max-w-lg text-[16px] leading-relaxed text-muted md:text-[19px] lg:mx-0"
           >
-            Eight floodlit padel courts, a full football ground, and pickleball &mdash; open till
-            2 AM, built for players who take their game seriously.
+            Eight floodlit padel courts and a full football ground &mdash; open till 2 AM,
+            built for players who take their game seriously.
           </motion.p>
 
           <motion.div
@@ -71,10 +71,8 @@ export function Hero() {
             <Button size="lg" asChild>
               <a href="#booking-preview">Book a Court</a>
             </Button>
-            {/* TODO: no Academy section exists yet — pointed at Facilities as a
-                placeholder until that page/section is built. */}
             <Button size="lg" variant="outline" asChild>
-              <a href="#facilities">Explore Academy</a>
+              <a href="#academy">Explore Academy</a>
             </Button>
           </motion.div>
 
