@@ -4,8 +4,8 @@ import { Footer } from "@/components/footer";
 import { WalletView } from "@/components/wallet/wallet-view";
 
 export const metadata: Metadata = {
-  title: "Wallet & Club Credits | PaddleX Pakistan",
-  description: "Manage your PaddleX wallet balance, vouchers, and payment history.",
+  title: "Wallet & Club Credits | Padel X Pakistan",
+  description: "Manage your Padel X Pakistan wallet balance, vouchers, and payment history.",
 };
 
 export default function WalletPage() {
