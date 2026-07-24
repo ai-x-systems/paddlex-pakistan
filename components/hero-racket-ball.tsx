@@ -55,8 +55,8 @@ const idleFloat = {
 export function HeroRacketBall() {
   const rawX = useMotionValue(0);
   const rawY = useMotionValue(0);
-  const springX = useSpring(rawX, { stiffness: 120, damping: 16, mass: 0.4 });
-  const springY = useSpring(rawY, { stiffness: 120, damping: 16, mass: 0.4 });
+  const springX = useSpring(rawX, { stiffness: 220, damping: 24, mass: 0.25 });
+  const springY = useSpring(rawY, { stiffness: 220, damping: 24, mass: 0.25 });
   const rotateX = useTransform(springY, [-1, 1], [18, -18]);
   const rotateY = useTransform(springX, [-1, 1], [-24, 24]);
   const ballShiftX = useTransform(springX, [-1, 1], [-14, 14]);
