@@ -11,9 +11,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/toast-provider";
 
-type CourtKey = "A" | "B" | "C" | "F";
-const courtNames: Record<CourtKey, string> = { A: "Padel Court A", B: "Padel Court B", C: "Padel Court C", F: "Football Ground" };
-const courtRates: Record<CourtKey, number> = { A: 3500, B: 3200, C: 3000, F: 6000 };
+type CourtKey = "A" | "B" | "C" | "P" | "F";
+const courtNames: Record<CourtKey, string> = { A: "Padel Court A", B: "Padel Court B", C: "Padel Court C", P: "Pickleball Court", F: "Futsal Ground" };
+const courtRates: Record<CourtKey, number> = { A: 3500, B: 3200, C: 3000, P: 2500, F: 6000 };
 
 const days = ["SAT", "SUN", "MON", "TUE", "WED", "THU", "FRI"];
 const dateNums = [18, 19, 20, 21, 22, 23, 24];
@@ -33,7 +33,7 @@ const coaches = [
 const openMatches = [
   { id: "m1", court: "Court A", time: "Sat, 18 Jul · 7:00 PM", need: 2 },
   { id: "m2", court: "Court C", time: "Sun, 19 Jul · 6:00 PM", need: 1 },
-  { id: "m3", court: "Football Ground", time: "Sun, 19 Jul · 8:00 PM", need: 4 },
+  { id: "m3", court: "Futsal Ground", time: "Sun, 19 Jul · 8:00 PM", need: 4 },
 ];
 
 type Teaming = "full" | "need1" | "need2" | "join" | "waitlist";
