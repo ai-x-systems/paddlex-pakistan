@@ -8,15 +8,16 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/toast-provider";
 import { SignatureBookingAnimation } from "@/components/signature-booking-animation";
 
-type CourtKey = "A" | "B" | "C" | "F";
+type CourtKey = "A" | "B" | "C" | "P" | "F";
 
 const courtNames: Record<CourtKey, string> = {
   A: "Padel Court A",
   B: "Padel Court B",
   C: "Padel Court C",
-  F: "Football Ground",
+  P: "Pickleball Court",
+  F: "Futsal Ground",
 };
-const courtRates: Record<CourtKey, number> = { A: 3500, B: 3200, C: 3000, F: 6000 };
+const courtRates: Record<CourtKey, number> = { A: 3500, B: 3200, C: 3000, P: 2500, F: 6000 };
 
 const days = ["SAT", "SUN", "MON", "TUE", "WED", "THU", "FRI"];
 const dateNums = [18, 19, 20, 21, 22, 23, 24];
@@ -119,7 +120,7 @@ export function BookingPreview() {
                         : "border-border text-muted"
                     }`}
                   >
-                    {c === "F" ? "Football" : `Court ${c}`}
+                    {c === "F" ? "Futsal" : c === "P" ? "Pickleball" : `Court ${c}`}
                   </button>
                 ))}
               </div>
