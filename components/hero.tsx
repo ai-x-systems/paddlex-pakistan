@@ -58,8 +58,8 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mx-auto mb-9 max-w-lg text-[16px] leading-relaxed text-muted md:text-[19px] lg:mx-0"
           >
-            Eight floodlit padel courts and a full football ground &mdash; open till 2 AM,
-            built for players who take their game seriously.
+            Eight floodlit padel courts, dedicated pickleball courts, and a full futsal ground
+            &mdash; open till 2 AM, built for players who take their game seriously.
           </motion.p>
 
           <motion.div
