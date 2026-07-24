@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 export function LogoMark({ className }: { className?: string }) {
   return (
     <div className={cn("relative h-9 w-9 shrink-0 overflow-hidden rounded-md", className)}>
-      <Image src="/logo.png" alt="PadelX Pakistan" fill sizes="36px" className="object-cover" priority />
+      <Image src="/logo.png" alt="Padel X Pakistan" fill sizes="36px" className="object-cover" priority />
     </div>
   );
 }
