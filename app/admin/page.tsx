@@ -3,7 +3,7 @@ import { Logo } from "@/components/logo";
 import { AdminOverview } from "@/components/admin/admin-overview";
 
 export const metadata: Metadata = {
-  title: "Admin | PaddleX Pakistan",
+  title: "Admin | Padel X Pakistan",
   robots: { index: false, follow: false },
 };
 
