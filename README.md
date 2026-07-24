@@ -1,6 +1,6 @@
-# PaddleX Pakistan — Landing Page Demo
+# Padel X Pakistan — Landing Page Demo
 
-A premium, fully-interactive sales-presentation landing page for PaddleX Pakistan (Karachi).
+A premium, fully-interactive sales-presentation landing page for Padel X Pakistan (Karachi).
 **Frontend only** — no backend, no database, no auth, no payments. Every interaction (booking
 slots, coaching tabs, FAQ, AI chat, toasts) runs on mock data in the browser.
 
@@ -40,7 +40,7 @@ need your accounts/credentials. Here's the fastest path:
 cd paddlex-nextjs
 git init
 git add .
-git commit -m "PaddleX Pakistan — landing page demo"
+git commit -m "Padel X Pakistan — landing page demo"
 git branch -M main
 git remote add origin https://github.com/<your-username>/paddlex-pakistan.git
 git push -u origin main
@@ -76,7 +76,7 @@ public/logo.png       Client-provided logo asset
 
 ## Before this goes to the client
 
-- Swap Unsplash URLs in `facilities.tsx` and `gallery.tsx` for real PaddleX photography
+- Swap Unsplash URLs in `facilities.tsx` and `gallery.tsx` for real Padel X Pakistan photography
 - Update phone number, email, and WhatsApp link in `footer.tsx`
 - Confirm membership/coaching pricing against final client-approved numbers (currently placeholder
   PKR figures pulled from the product spec)
