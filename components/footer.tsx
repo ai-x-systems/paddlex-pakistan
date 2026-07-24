@@ -5,6 +5,7 @@ import { Logo } from "@/components/logo";
 // Matches navbar's anchor links exactly.
 const exploreLinks = [
   { href: "#facilities", label: "Facilities" },
+  { href: "#coaching", label: "Coaching" },
   { href: "#gallery", label: "Gallery" },
   { href: "#faq", label: "FAQ" },
 ];
