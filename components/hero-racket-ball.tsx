@@ -124,9 +124,10 @@ export function HeroRacketBall() {
                 <stop offset="0%" stopColor="#E9FF66" />
                 <stop offset="100%" stopColor="#8FB800" />
               </linearGradient>
-              <linearGradient id="gripFill" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stopColor="#2a2a2f" />
-                <stop offset="100%" stopColor="#111114" />
+              <linearGradient id="gripFill" x1="30" y1="72" x2="40" y2="100" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#EDE2A6" />
+                <stop offset="50%" stopColor="#C8D96C" />
+                <stop offset="100%" stopColor="#6F9A34" />
               </linearGradient>
               <linearGradient id="sheen" x1="10" y1="4" x2="46" y2="46" gradientUnits="userSpaceOnUse">
                 <stop offset="0%" stopColor="#ffffff" stopOpacity="0.35" />
@@ -152,10 +153,28 @@ export function HeroRacketBall() {
                 <circle key={i} cx={hx} cy={hy} r={r} fill="#050505" fillOpacity="0.85" />
               ))}
             </g>
-            {/* handle */}
-            <rect x="32" y="72" width="12" height="8" fill="url(#gripFill)" />
-            <rect x="30" y="78" width="16" height="20" rx="4" fill="url(#gripFill)" stroke="#3a3a40" strokeWidth="1" />
-            <path d="M30 82h16M30 87h16M30 92h16" stroke="#0a0a0c" strokeWidth="1" opacity="0.6" />
+            {/* handle: tapered grip fading from pale wood-tone to green, with a rounded cap */}
+            <path
+              d="M33 72C32.6 79 31.5 86 31.4 92C31.3 96.5 32.2 100.5 35 100.5C37.8 100.5 38.7 96.5 38.6 92C38.5 86 37.4 79 37 72Z"
+              fill="url(#gripFill)"
+            />
+            <path
+              d="M33.3 74.5C32.6 82 32.1 89.5 32.3 96.5"
+              stroke="#F7FFC2"
+              strokeWidth="0.8"
+              strokeLinecap="round"
+              opacity="0.55"
+              fill="none"
+            />
+            <path
+              d="M36.7 74.5C37.4 82 37.9 89.5 37.7 96.5"
+              stroke="#3F5C18"
+              strokeWidth="0.8"
+              strokeLinecap="round"
+              opacity="0.5"
+              fill="none"
+            />
+            <ellipse cx="35" cy="99.5" rx="3.1" ry="2" fill="#232316" opacity="0.9" />
           </svg>
         </motion.div>
 
@@ -169,9 +188,9 @@ export function HeroRacketBall() {
           <svg width="34" height="34" viewBox="0 0 34 34" style={{ filter: "drop-shadow(0 6px 10px rgba(0,0,0,0.5))" }}>
             <defs>
               <radialGradient id="ballFill" cx="35%" cy="30%" r="70%">
-                <stop offset="0%" stopColor="#F3FFA8" />
-                <stop offset="45%" stopColor="#C8FF00" />
-                <stop offset="100%" stopColor="#7C9900" />
+                <stop offset="0%" stopColor="#FFFFFF" />
+                <stop offset="55%" stopColor="#F1F1F1" />
+                <stop offset="100%" stopColor="#C7C7C7" />
               </radialGradient>
             </defs>
             <circle cx="17" cy="17" r="15" fill="url(#ballFill)" />
