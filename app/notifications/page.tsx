@@ -4,7 +4,7 @@ import { Footer } from "@/components/footer";
 import { NotificationCenter } from "@/components/notifications/notification-center";
 
 export const metadata: Metadata = {
-  title: "Notifications | PaddleX Pakistan",
+  title: "Notifications | Padel X Pakistan",
   description: "Notification center demonstrating customer and reception alerts.",
 };
 
