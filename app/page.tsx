@@ -20,7 +20,7 @@ const jsonLd = {
   "@type": "SportsActivityLocation",
   name: "Padel X Pakistan",
   description:
-    "Premium padel courts, football grounds, coaching academy and online booking platform in Karachi.",
+    "Premium padel, pickleball and futsal courts, coaching academy and online booking platform in Karachi.",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Karachi",
