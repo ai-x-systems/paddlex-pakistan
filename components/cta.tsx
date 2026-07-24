@@ -25,7 +25,7 @@ export function CTA() {
             Ready to Elevate Your Game?
           </h2>
           <p className="relative mb-7.5 text-muted">
-            Karachi&apos;s premium padel &amp; football destination — book your first session today.
+            Karachi&apos;s premium padel, pickleball &amp; futsal destination — book your first session today.
           </p>
           <div className="relative flex flex-wrap justify-center gap-3.5">
             <Button size="lg" asChild>
