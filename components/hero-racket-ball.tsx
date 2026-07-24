@@ -18,9 +18,9 @@ const ballVariants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    x: [0, -22, -44, -68, -84],
-    y: [0, -14, -4, -16, 0],
-    scale: [0.7, 1, 0.9, 1, 0.82],
+    x: [0, -18, -34, -20, -6],
+    y: [0, -22, -32, -16, -4],
+    scale: [0.7, 1, 0.9, 1, 0.85],
     transition: { delay: 0.5, duration: 1.1, ease: "easeInOut" },
   },
 };
