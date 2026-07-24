@@ -38,13 +38,23 @@ const courts = [
   },
   {
     tag: "Ground",
-    name: "Football Ground",
+    name: "Futsal Ground",
     type: "Outdoor",
     price: "PKR 6,000/hr",
     availability: "Open until 1 AM",
     feats: ["Artificial Turf", "Full Size", "Premium Experience"],
     img: "https://images.unsplash.com/photo-1487466365202-1afdb86c764e?auto=format&fit=crop&w=800&q=80",
     tone: "greenSoft" as const,
+  },
+  {
+    tag: "Court P",
+    name: "Pickleball Court",
+    type: "Indoor",
+    price: "PKR 2,500/hr",
+    availability: "Open until 11 PM",
+    feats: ["Indoor", "Beginner Friendly", "Equipment Included"],
+    img: "https://images.unsplash.com/photo-1615117561267-72e1c05a4dda?auto=format&fit=crop&w=800&q=80",
+    tone: "blueSoft" as const,
   },
 ];
 
@@ -56,15 +66,15 @@ export function Facilities() {
           eyebrow="Featured Courts"
           title={
             <>
-              Four courts. One ground.
+              Three sports. Five courts.
               <br />
               Zero compromise.
             </>
           }
-          sub="Every surface is built to tournament spec — indoor and outdoor, day and floodlit night play."
+          sub="Every surface is built to tournament spec — padel, pickleball, and futsal, indoor and outdoor, day and floodlit night play."
         />
 
-        <div className="grid grid-cols-1 gap-4.5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4.5 sm:grid-cols-2 lg:grid-cols-3">
           {courts.map((c, i) => (
             <motion.div
               key={c.name}
