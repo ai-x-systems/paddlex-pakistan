@@ -6,6 +6,7 @@ import { JoinMatch } from "@/components/join-match";
 import { BookingPreview } from "@/components/booking-preview";
 import { Tournaments } from "@/components/tournaments";
 import { ClubManagement } from "@/components/club-management";
+import { Coaching } from "@/components/coaching";
 import { Gallery } from "@/components/gallery";
 import { GoogleReviews } from "@/components/google-reviews";
 import { FAQ } from "@/components/faq";
@@ -43,6 +44,7 @@ export default function Home() {
         <BookingPreview />
         <Tournaments />
         <ClubManagement />
+        <Coaching />
         <Gallery />
         <GoogleReviews />
         <FAQ />
