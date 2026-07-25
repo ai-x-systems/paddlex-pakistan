@@ -47,7 +47,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="mb-5 text-[42px] font-black uppercase leading-[1.03] tracking-[-0.03em] sm:text-[58px] md:text-[72px]"
+            className="mb-5 text-[clamp(30px,9.5vw,42px)] font-black uppercase leading-[1.03] tracking-[-0.03em] sm:text-[58px] md:text-[72px]"
           >
             Karachi&apos;s <span className="text-gradient">Multi-Sport</span> Arena
           </motion.h1>
