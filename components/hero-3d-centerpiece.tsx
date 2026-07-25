@@ -5,10 +5,11 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { HeroRacketBall } from "@/components/hero-racket-ball";
 
-// Real 3D padel racket + ball — 3D only, no 2D fallback graphic. Colors and
-// pattern are drawn onto canvas textures at runtime (no external image
-// assets) to get the warm brown perforated face, glowing
-// cream-yellow rim, tan-to-green tapered handle — lit and in 3D.
+// Real 3D padel racket + ball, with the lime-themed 2D graphic as a fallback
+// for the brief WebGL-unsupported case. Colors and pattern are drawn onto
+// canvas textures at runtime (no external image assets) to get the warm
+// brown perforated face, glowing cream-yellow rim, tan-to-green tapered
+// handle — lit and in 3D.
 //
 // The racket and the ball each spin continuously on their own axis. They
 // are siblings (not nested), so the ball spins in place next to the racket
@@ -242,11 +243,7 @@ export function Hero3DCenterpiece() {
     }
   }, []);
 
-  if (failed) {
-    return (
-      <div className="absolute right-[12%] top-[18%] h-40 w-40 rounded-full bg-brand-green/10 blur-3xl" />
-    );
-  }
+  if (failed) return <HeroRacketBall />;
 
   return (
     <Canvas
