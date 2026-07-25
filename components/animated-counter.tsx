@@ -33,7 +33,7 @@ export function AnimatedCounter({
   }, [inView, target, decimal, suffix, duration]);
 
   return (
-    <span ref={ref} className="font-mono-brand text-[28px] font-bold tracking-tight md:text-[32px]">
+    <span ref={ref} className="font-mono-brand text-[22px] font-bold tracking-tight sm:text-[28px] md:text-[32px]">
       {value}
     </span>
   );
