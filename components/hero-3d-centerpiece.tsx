@@ -80,10 +80,10 @@ function useFaceTexture() {
       size * 0.4, size * 0.32, size * 0.04,
       size * 0.5, size * 0.5, size * 0.56
     );
-    grad.addColorStop(0, "#a3823f");
-    grad.addColorStop(0.4, "#8a6a2f");
-    grad.addColorStop(0.75, "#664d20");
-    grad.addColorStop(1, "#3d2c14");
+    grad.addColorStop(0, "#c49a4e");
+    grad.addColorStop(0.4, "#9c7a35");
+    grad.addColorStop(0.75, "#6f5522");
+    grad.addColorStop(1, "#402f16");
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, size, size);
 
@@ -172,11 +172,6 @@ function useHandleTexture() {
     grad.addColorStop(1, "#6F9A34");
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, w, h);
-
-    ctx.fillStyle = "rgba(255,255,255,0.35)";
-    ctx.fillRect(w * 0.12, 0, w * 0.1, h);
-    ctx.fillStyle = "rgba(0,0,0,0.28)";
-    ctx.fillRect(w * 0.8, 0, w * 0.1, h);
 
     const tex = new THREE.CanvasTexture(canvas);
     tex.colorSpace = THREE.SRGBColorSpace;
@@ -309,13 +304,20 @@ export function Hero3DCenterpiece() {
       gl={{ antialias: true, alpha: true }}
       style={{ pointerEvents: "none" }}
       onError={() => setFailed(true)}
+      onCreated={(state) => {
+        // Default tone-mapping exposure reads as noticeably dim/muddy for
+        // these light values — bump it up so colors show at full brightness.
+        state.gl.toneMappingExposure = 1.5;
+      }}
     >
-      <ambientLight intensity={0.9} />
-      <pointLight position={[3, 3, 4]} intensity={1} color="#E9FF66" />
-      <pointLight position={[-3, -2, 3]} intensity={0.35} color="#C8FF00" />
-      {/* neutral front fill so the face/handle textures read their real
-          color instead of being washed dark by the colored rim lights alone */}
-      <pointLight position={[0, 0.5, 6]} intensity={0.55} color="#ffffff" />
+      <ambientLight intensity={1.5} />
+      {/* decay={0} disables realistic distance falloff — without it, these
+          lights read far dimmer than their intensity numbers suggest at a
+          few units away, which is what was crushing the face/handle/ball
+          toward dark and grey. */}
+      <pointLight position={[3, 3, 4]} intensity={3} color="#E9FF66" decay={0} />
+      <pointLight position={[-3, -2, 3]} intensity={1.2} color="#C8FF00" decay={0} />
+      <pointLight position={[0, 0.5, 6]} intensity={2.2} color="#ffffff" decay={0} />
       <RacketModel />
     </Canvas>
   );
