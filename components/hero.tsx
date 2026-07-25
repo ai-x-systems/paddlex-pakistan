@@ -1,9 +1,26 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { HeroRacketBall } from "@/components/hero-racket-ball";
+
+// The 3D racket needs a browser/WebGL context, so it's client-only and
+// loaded lazily. While it loads, the lime-themed 2D racket/ball graphic
+// renders instead, so the hero never shows a gap.
+const Hero3DCenterpiece = dynamic(
+  () => import("@/components/hero-3d-centerpiece").then((m) => m.Hero3DCenterpiece),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="relative h-full w-full">
+        <HeroRacketBall />
+      </div>
+    ),
+
+  }
+);
 
 export function Hero() {
   return (
@@ -81,7 +98,7 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.25 }}
           className="relative mx-auto h-[340px] w-full max-w-[420px] lg:h-[460px]"
         >
-          <HeroRacketBall />
+          <Hero3DCenterpiece />
         </motion.div>
       </div>
     </section>
