@@ -55,7 +55,7 @@ const spin = {
   transition: { duration: 8, repeat: Infinity, ease: "linear" },
 };
 
-// Large, standalone hero centerpiece — golden/tan padel racket + ball with a
+// Large, standalone hero centerpiece — lime-green padel racket + ball with a
 // perforated face, a continuous spin, and a subtle cursor-tilt on desktop.
 export function HeroRacketBall() {
   const rawX = useMotionValue(0);
@@ -99,7 +99,7 @@ export function HeroRacketBall() {
         initial="hidden"
         animate="show"
         className="absolute right-2 top-0 h-[280px] w-[240px] rounded-full opacity-60 blur-[64px]"
-        style={{ background: "radial-gradient(circle, #D9B23C 0%, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, #C8FF00 0%, transparent 70%)" }}
       />
 
       <motion.div animate={idleFloat} className="absolute right-0 top-0" style={{ transformStyle: "preserve-3d" }}>
@@ -114,21 +114,21 @@ export function HeroRacketBall() {
                 height="248"
                 viewBox="0 0 76 100"
                 fill="none"
-                style={{ filter: "drop-shadow(0 14px 26px rgba(0,0,0,0.55)) drop-shadow(0 0 18px rgba(217,178,60,0.4))" }}
+                style={{ filter: "drop-shadow(0 14px 26px rgba(0,0,0,0.55)) drop-shadow(0 0 18px rgba(200,255,0,0.4))" }}
               >
                 <defs>
                   <radialGradient id="faceFill" cx="36%" cy="30%" r="70%">
-                    <stop offset="0%" stopColor="#F5E37A" />
-                    <stop offset="50%" stopColor="#D9B23C" />
-                    <stop offset="100%" stopColor="#8A6A1A" />
+                    <stop offset="0%" stopColor="#EFFFA0" />
+                    <stop offset="50%" stopColor="#C8FF00" />
+                    <stop offset="100%" stopColor="#5C7A00" />
                   </radialGradient>
                   <linearGradient id="rimStroke" x1="0" y1="0" x2="76" y2="100" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="#FFE9A8" />
-                    <stop offset="100%" stopColor="#B98A2A" />
+                    <stop offset="0%" stopColor="#F3FFB0" />
+                    <stop offset="100%" stopColor="#8FB800" />
                   </linearGradient>
                   <linearGradient id="gripFill" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stopColor="#7d5a2c" />
-                    <stop offset="100%" stopColor="#4a3216" />
+                    <stop offset="0%" stopColor="#C8D96C" />
+                    <stop offset="100%" stopColor="#4B6B1E" />
                   </linearGradient>
                   <linearGradient id="sheen" x1="10" y1="4" x2="46" y2="46" gradientUnits="userSpaceOnUse">
                     <stop offset="0%" stopColor="#ffffff" stopOpacity="0.45" />
@@ -145,12 +145,12 @@ export function HeroRacketBall() {
                 <path d="M20 12C26 8 33 6 39 7C31 10 24 16 20 26C16 20 16 15 20 12Z" fill="url(#sheen)" />
                 <g transform="translate(38 40)">
                   {holes.map(([hx, hy, r], i) => (
-                    <circle key={i} cx={hx} cy={hy} r={r} fill="#1a1204" fillOpacity="0.85" />
+                    <circle key={i} cx={hx} cy={hy} r={r} fill="#101c00" fillOpacity="0.85" />
                   ))}
                 </g>
                 <rect x="32" y="72" width="12" height="8" fill="url(#gripFill)" />
-                <rect x="30" y="78" width="16" height="20" rx="4" fill="url(#gripFill)" stroke="#3a2810" strokeWidth="1" />
-                <path d="M30 82h16M30 87h16M30 92h16" stroke="#2a1c0a" strokeWidth="1" opacity="0.6" />
+                <rect x="30" y="78" width="16" height="20" rx="4" fill="url(#gripFill)" stroke="#2f4212" strokeWidth="1" />
+                <path d="M30 82h16M30 87h16M30 92h16" stroke="#1e2d0b" strokeWidth="1" opacity="0.6" />
               </svg>
             </motion.div>
           </motion.div>
@@ -167,7 +167,7 @@ export function HeroRacketBall() {
             <defs>
               <radialGradient id="ballFill" cx="35%" cy="30%" r="70%">
                 <stop offset="0%" stopColor="#F3FFA8" />
-                <stop offset="45%" stopColor="#D6FF4D" />
+                <stop offset="45%" stopColor="#C8FF00" />
                 <stop offset="100%" stopColor="#7C9900" />
               </radialGradient>
             </defs>
