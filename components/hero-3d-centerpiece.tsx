@@ -1,16 +1,81 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { HeroRacketBall } from "@/components/hero-racket-ball";
 
-// Stylized, low-poly padel racket + ball. Procedural primitives only — no
-// external model/texture assets, per the brief's "keep it light" guidance.
+// Perforation dot layout (normalized -0.5..0.5 offsets from center) reused
+// for the canvas texture painted onto the paddle face.
+const holes: Array<[number, number]> = [
+  [-0.18, -0.34], [0, -0.37], [0.18, -0.34],
+  [-0.3, -0.22], [-0.1, -0.24], [0.1, -0.24], [0.3, -0.22],
+  [-0.34, -0.05], [-0.14, -0.06], [0.06, -0.06], [0.26, -0.05],
+  [-0.3, 0.12], [-0.1, 0.13], [0.1, 0.13], [0.3, 0.12],
+  [-0.18, 0.27], [0, 0.29], [0.18, 0.27],
+];
+
+// Procedurally paints a golden/tan, perforated racket-face texture onto a
+// canvas so the paddle reads as a real racket instead of a flat color blob.
+function useRacketTexture() {
+  return useMemo(() => {
+    if (typeof document === "undefined") return null;
+    const size = 512;
+    const canvas = document.createElement("canvas");
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return null;
+
+    ctx.clearRect(0, 0, size, size);
+
+    const grad = ctx.createRadialGradient(
+      size * 0.36, size * 0.3, size * 0.05,
+      size * 0.5, size * 0.5, size * 0.58
+    );
+    grad.addColorStop(0, "#F5E37A");
+    grad.addColorStop(0.5, "#D9B23C");
+    grad.addColorStop(1, "#8A6A1A");
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.ellipse(size / 2, size / 2, size * 0.46, size * 0.46, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.lineWidth = size * 0.018;
+    ctx.strokeStyle = "#FFE9A8";
+    ctx.globalAlpha = 0.65;
+    ctx.beginPath();
+    ctx.ellipse(size / 2, size / 2, size * 0.44, size * 0.44, 0, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+
+    ctx.fillStyle = "rgba(25,18,6,0.85)";
+    holes.forEach(([dx, dy]) => {
+      ctx.beginPath();
+      ctx.arc(size / 2 + dx * size, size / 2 + dy * size, size * 0.028, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    const sheen = ctx.createLinearGradient(size * 0.22, size * 0.08, size * 0.52, size * 0.42);
+    sheen.addColorStop(0, "rgba(255,255,255,0.55)");
+    sheen.addColorStop(1, "rgba(255,255,255,0)");
+    ctx.fillStyle = sheen;
+    ctx.beginPath();
+    ctx.ellipse(size * 0.34, size * 0.27, size * 0.17, size * 0.1, -0.4, 0, Math.PI * 2);
+    ctx.fill();
+
+    const tex = new THREE.CanvasTexture(canvas);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    tex.needsUpdate = true;
+    return tex;
+  }, []);
+}
+
 function RacketModel() {
   const group = useRef<THREE.Group>(null);
   const tilt = useRef({ x: 0, y: 0 });
   const reducedMotion = useRef(false);
+  const texture = useRacketTexture();
 
   useEffect(() => {
     reducedMotion.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -40,31 +105,25 @@ function RacketModel() {
 
   return (
     <group ref={group}>
-      {/* paddle face */}
+      {/* paddle face — textured with the golden/tan perforated canvas map */}
       <mesh position={[0, 0.6, 0]} scale={[1, 1.25, 0.12]}>
         <sphereGeometry args={[1, 32, 32]} />
         <meshStandardMaterial
-          color="#0f0f10"
-          emissive="#C8FF00"
-          emissiveIntensity={0.35}
-          roughness={0.35}
-          metalness={0.1}
+          map={texture ?? undefined}
+          color={texture ? "#ffffff" : "#D9B23C"}
+          roughness={0.4}
+          metalness={0.18}
         />
       </mesh>
-      {/* glowing rim outline */}
-      <mesh position={[0, 0.6, 0]} scale={[1.04, 1.29, 0.05]}>
-        <sphereGeometry args={[1, 32, 32]} />
-        <meshBasicMaterial color="#C8FF00" wireframe transparent opacity={0.5} />
-      </mesh>
-      {/* handle */}
+      {/* handle — warm wood-tone grip instead of flat black */}
       <mesh position={[0, -0.95, 0]}>
         <cylinderGeometry args={[0.09, 0.11, 0.9, 16]} />
-        <meshStandardMaterial color="#1a1a1d" roughness={0.5} />
+        <meshStandardMaterial color="#6b4a24" roughness={0.55} />
       </mesh>
       {/* ball */}
       <mesh position={[1.15, 1.1, 0.3]}>
         <sphereGeometry args={[0.22, 24, 24]} />
-        <meshStandardMaterial color="#C8FF00" emissive="#C8FF00" emissiveIntensity={0.6} roughness={0.3} />
+        <meshStandardMaterial color="#D6FF4D" emissive="#9ACD00" emissiveIntensity={0.4} roughness={0.3} />
       </mesh>
     </group>
   );
@@ -95,9 +154,9 @@ export function Hero3DCenterpiece() {
       style={{ pointerEvents: "none" }}
       onError={() => setFailed(true)}
     >
-      <ambientLight intensity={0.5} />
-      <pointLight position={[3, 3, 4]} intensity={1.2} color="#C8FF00" />
-      <pointLight position={[-3, -2, 3]} intensity={0.5} color="#4C82FF" />
+      <ambientLight intensity={0.6} />
+      <pointLight position={[3, 3, 4]} intensity={1.2} color="#FFE9A8" />
+      <pointLight position={[-3, -2, 3]} intensity={0.5} color="#C8FF00" />
       <RacketModel />
     </Canvas>
   );
