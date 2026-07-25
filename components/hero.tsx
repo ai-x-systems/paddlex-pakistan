@@ -98,6 +98,10 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.25 }}
           className="relative mx-auto h-[340px] w-full max-w-[420px] lg:h-[460px]"
         >
+          <div
+            className="pointer-events-none absolute right-[6%] top-[8%] h-[70%] w-[70%] rounded-full opacity-70 blur-[80px]"
+            style={{ background: "radial-gradient(circle, #C8FF00 0%, transparent 70%)" }}
+          />
           <Hero3DCenterpiece />
         </motion.div>
       </div>
