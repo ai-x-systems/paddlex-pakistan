@@ -1,25 +1,9 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "@/components/animated-counter";
-
-// The 3D racket needs a browser/WebGL context, so it's client-only and
-// loaded lazily. While it loads, a plain glow placeholder renders in its
-// place — no 2D racket graphic anywhere, per the brief (3D only).
-const Hero3DCenterpiece = dynamic(
-  () => import("@/components/hero-3d-centerpiece").then((m) => m.Hero3DCenterpiece),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="relative h-full w-full">
-        <div className="absolute right-[12%] top-[18%] h-40 w-40 rounded-full bg-brand-green/10 blur-3xl" />
-      </div>
-    ),
-
-  }
-);
+import { HeroRacketBall } from "@/components/hero-racket-ball";
 
 export function Hero() {
   return (
@@ -97,7 +81,7 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.25 }}
           className="relative mx-auto h-[340px] w-full max-w-[420px] lg:h-[460px]"
         >
-          <Hero3DCenterpiece />
+          <HeroRacketBall />
         </motion.div>
       </div>
     </section>
