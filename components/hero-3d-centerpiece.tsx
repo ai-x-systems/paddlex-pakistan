@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { HeroRacketBall } from "@/components/hero-racket-ball";
 
 // Real 3D padel racket + ball — 3D only, no 2D fallback graphic. Colors and
 // pattern are drawn onto canvas textures at runtime (no external image
