@@ -33,9 +33,9 @@ function useFaceTexture() {
       size * 0.5,
       size * 0.56
     );
-    grad.addColorStop(0, "#6b5a34");
-    grad.addColorStop(0.55, "#4a3c22");
-    grad.addColorStop(1, "#2a2113");
+    grad.addColorStop(0, "#7d6a3f");
+    grad.addColorStop(0.55, "#584824");
+    grad.addColorStop(1, "#382b17");
     ctx.fillStyle = grad;
     ctx.beginPath();
     ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
@@ -195,7 +195,7 @@ function RacketModel() {
           <meshStandardMaterial
             color="#E9FF66"
             emissive="#C8FF00"
-            emissiveIntensity={0.85}
+            emissiveIntensity={0.65}
             roughness={0.3}
           />
         </mesh>
@@ -248,14 +248,17 @@ export function Hero3DCenterpiece() {
   return (
     <Canvas
       dpr={[1, 1.75]}
-      camera={{ position: [0, 0, 4.4], fov: 38 }}
+      camera={{ position: [0, 0.2, 8.6], fov: 34 }}
       gl={{ antialias: true, alpha: true }}
       style={{ pointerEvents: "none" }}
       onError={() => setFailed(true)}
     >
-      <ambientLight intensity={0.55} />
-      <pointLight position={[3, 3, 4]} intensity={1.1} color="#E9FF66" />
-      <pointLight position={[-3, -2, 3]} intensity={0.4} color="#C8FF00" />
+      <ambientLight intensity={0.9} />
+      <pointLight position={[3, 3, 4]} intensity={1} color="#E9FF66" />
+      <pointLight position={[-3, -2, 3]} intensity={0.35} color="#C8FF00" />
+      {/* neutral front fill so the face/handle textures read their real
+          color instead of being washed dark by the colored rim lights alone */}
+      <pointLight position={[0, 0.5, 6]} intensity={0.55} color="#ffffff" />
       <RacketModel />
     </Canvas>
   );
