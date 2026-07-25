@@ -73,6 +73,7 @@ function useRacketTexture() {
 
 function RacketModel() {
   const group = useRef<THREE.Group>(null);
+  const ball = useRef<THREE.Mesh>(null);
   const tilt = useRef({ x: 0, y: 0 });
   const reducedMotion = useRef(false);
   const texture = useRacketTexture();
@@ -94,34 +95,46 @@ function RacketModel() {
     return () => window.removeEventListener("pointermove", handleMove);
   }, []);
 
-  useFrame((_, delta) => {
-    if (!group.current) return;
-    if (!reducedMotion.current) {
-      group.current.rotation.y += delta * 0.35;
+  useFrame(({ clock }, delta) => {
+    if (group.current) {
+      if (!reducedMotion.current) {
+        group.current.rotation.y += delta * 0.35;
+      }
+      group.current.rotation.x += (tilt.current.x - group.current.rotation.x) * 0.05;
+      group.current.rotation.z += (-tilt.current.y * 0.3 - group.current.rotation.z) * 0.05;
     }
-    group.current.rotation.x += (tilt.current.x - group.current.rotation.x) * 0.05;
-    group.current.rotation.z += (-tilt.current.y * 0.3 - group.current.rotation.z) * 0.05;
+    // Ball orbits the racket independently — a real moving path, not just
+    // spinning in place along with the paddle's own rotation.
+    if (ball.current && !reducedMotion.current) {
+      const t = clock.getElapsedTime() * 0.8;
+      ball.current.position.x = Math.cos(t) * 1.5;
+      ball.current.position.y = 0.6 + Math.sin(t) * 1.3;
+      ball.current.position.z = Math.sin(t * 0.6) * 0.6;
+    }
   });
 
   return (
-    <group ref={group}>
-      {/* paddle face — textured with the golden/tan perforated canvas map */}
-      <mesh position={[0, 0.6, 0]} scale={[1, 1.25, 0.12]}>
-        <sphereGeometry args={[1, 32, 32]} />
-        <meshStandardMaterial
-          map={texture ?? undefined}
-          color={texture ? "#ffffff" : "#D9B23C"}
-          roughness={0.4}
-          metalness={0.18}
-        />
-      </mesh>
-      {/* handle — warm wood-tone grip instead of flat black */}
-      <mesh position={[0, -0.95, 0]}>
-        <cylinderGeometry args={[0.09, 0.11, 0.9, 16]} />
-        <meshStandardMaterial color="#6b4a24" roughness={0.55} />
-      </mesh>
-      {/* ball */}
-      <mesh position={[1.15, 1.1, 0.3]}>
+    <group>
+      <group ref={group}>
+        {/* paddle face — textured with the golden/tan perforated canvas map */}
+        <mesh position={[0, 0.6, 0]} scale={[1, 1.25, 0.12]}>
+          <sphereGeometry args={[1, 32, 32]} />
+          <meshStandardMaterial
+            map={texture ?? undefined}
+            color={texture ? "#ffffff" : "#D9B23C"}
+            roughness={0.4}
+            metalness={0.18}
+          />
+        </mesh>
+        {/* handle — warm wood-tone grip instead of flat black */}
+        <mesh position={[0, -0.95, 0]}>
+          <cylinderGeometry args={[0.09, 0.11, 0.9, 16]} />
+          <meshStandardMaterial color="#6b4a24" roughness={0.55} />
+        </mesh>
+      </group>
+      {/* ball — orbits the racket on its own path, outside the paddle's group
+          so its motion isn't rigidly tied to the paddle's rotation */}
+      <mesh ref={ball} position={[1.15, 1.1, 0.3]}>
         <sphereGeometry args={[0.22, 24, 24]} />
         <meshStandardMaterial color="#D6FF4D" emissive="#9ACD00" emissiveIntensity={0.4} roughness={0.3} />
       </mesh>
