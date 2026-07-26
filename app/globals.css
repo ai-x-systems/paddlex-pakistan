@@ -21,6 +21,7 @@
 @theme {
   --animate-accordion-down: accordion-down 0.25s ease-out;
   --animate-accordion-up: accordion-up 0.25s ease-out;
+  --animate-hero-scroll-drop: hero-scroll-drop 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
 }
 
 @keyframes accordion-down {
@@ -30,6 +31,12 @@
 @keyframes accordion-up {
   from { height: var(--radix-accordion-content-height); }
   to { height: 0; }
+}
+@keyframes hero-scroll-drop {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
 }
 
 html {
