@@ -14,11 +14,10 @@ const Hero3DCenterpiece = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="relative h-full w-full">
+      <div className="absolute inset-0">
         <HeroRacketBall />
       </div>
     ),
-
   }
 );
 
@@ -26,13 +25,14 @@ export function Hero() {
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden pb-16 pt-28 md:pb-20">
       <div className="grid-bg pointer-events-none absolute inset-0 opacity-35" />
-      <div
-        className="pointer-events-none absolute left-1/2 top-[-420px] h-[900px] w-[900px] -translate-x-1/2 rounded-full opacity-[0.16] blur-[140px]"
-        style={{ background: "radial-gradient(circle, #C8FF00 0%, transparent 65%)" }}
-      />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-14 px-5 md:px-7 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
-        <div className="mx-auto max-w-3xl text-center lg:mx-0 lg:max-w-none lg:text-left">
+      {/* Full-bleed 3D layer — the racket positions and lights itself within
+          this, the same way the reference's .hero__stage is a position:
+          absolute; inset:0 background behind the text, not a boxed graphic. */}
+      <Hero3DCenterpiece />
+
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-5 md:px-7">
+        <div className="mx-auto max-w-3xl text-center lg:mx-0 lg:max-w-[62%] lg:text-left">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -91,19 +91,18 @@ export function Hero() {
             </div>
           </div>
         </div>
+      </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.25 }}
-          className="relative mx-auto h-[340px] w-full max-w-[420px] lg:h-[460px]"
-        >
-          <div
-            className="pointer-events-none absolute right-[6%] top-[8%] h-[70%] w-[70%] rounded-full opacity-70 blur-[80px]"
-            style={{ background: "radial-gradient(circle, #C8FF00 0%, transparent 70%)" }}
-          />
-          <Hero3DCenterpiece />
-        </motion.div>
+      {/* Scroll cue — bottom-right, vertical "Scroll" label with an animated
+          dropping line, matching the reference's .hero__scroll exactly.
+          Desktop-only (matches its 900px cutoff), decorative. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-8 right-6 z-10 hidden items-center gap-2 text-[12.8px] uppercase tracking-[0.24em] text-white/40 min-[900px]:flex"
+        style={{ writingMode: "vertical-rl" }}
+      >
+        <span className="h-[52px] w-px animate-hero-scroll-drop bg-gradient-to-b from-brand-green to-transparent" />
+        Scroll
       </div>
     </section>
   );
