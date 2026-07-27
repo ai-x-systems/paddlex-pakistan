@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ToastProvider } from "@/components/toast-provider";
 import { WhatsappButton } from "@/components/whatsapp-button";
+import { ScrollToTopButton } from "@/components/scroll-to-top-button";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -52,6 +53,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ToastProvider>{children}</ToastProvider>
+        <ScrollToTopButton />
         <WhatsappButton />
       </body>
     </html>
