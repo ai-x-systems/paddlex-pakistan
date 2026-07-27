@@ -44,9 +44,9 @@ export function AdminOverview() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="mb-6 flex items-start gap-3 rounded-2xl border border-brand-blue/25 bg-brand-blue/[0.06] p-4"
+        className="mb-6 flex items-start gap-3 rounded-2xl border border-brand-green/25 bg-brand-green/[0.06] p-4"
       >
-        <RefreshCw className="mt-0.5 h-4 w-4 shrink-0 text-brand-blue-2" />
+        <RefreshCw className="mt-0.5 h-4 w-4 shrink-0 text-brand-green" />
         <p className="text-[12.5px] leading-relaxed text-muted">
           Revenue, detailed reports, and daily analytics already live in PlayPro and are not
           duplicated here. Operational data below will synchronize from PlayPro after backend
@@ -64,7 +64,7 @@ export function AdminOverview() {
             transition={{ duration: 0.4, delay: i * 0.05 }}
             className="rounded-2xl border border-border bg-surface p-4.5"
           >
-            <c.icon className="mb-3 h-4 w-4 text-brand-blue-2" />
+            <c.icon className="mb-3 h-4 w-4 text-brand-green" />
             <div className="font-mono-brand text-[20px] font-bold">{c.value}</div>
             <div className="mt-0.5 text-[11.5px] text-muted">{c.label}</div>
             <div className="mt-1 text-[10.5px] text-muted-2">{c.note}</div>
@@ -88,7 +88,7 @@ export function AdminOverview() {
                 <span>{c.label}</span>
                 <button
                   onClick={() => toast("Content editor arrives with full CMS integration")}
-                  className="text-[11.5px] text-brand-blue-2 hover:underline"
+                  className="text-[11.5px] text-brand-green hover:underline"
                 >
                   Edit
                 </button>
@@ -99,7 +99,7 @@ export function AdminOverview() {
 
         <div className="rounded-2xl border border-border bg-surface p-5">
           <div className="mb-4 flex items-center gap-2 text-[13px] font-semibold">
-            <ShieldCheck className="h-4 w-4 text-brand-blue-2" /> Staff Roles
+            <ShieldCheck className="h-4 w-4 text-brand-green" /> Staff Roles
           </div>
           <div className="flex flex-wrap gap-2">
             {roles.map((r) => (
@@ -119,7 +119,7 @@ export function AdminOverview() {
         <Bell className="h-4 w-4 text-muted-2" />
         <span className="text-[12.5px] text-muted">
           Booking and payment alerts route to the{" "}
-          <a href="/notifications" className="text-brand-blue-2 hover:underline">Notification Center</a>.
+          <a href="/notifications" className="text-brand-green hover:underline">Notification Center</a>.
         </span>
       </div>
     </div>
