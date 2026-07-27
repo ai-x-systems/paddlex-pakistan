@@ -132,12 +132,12 @@ export function BookingPreview() {
                     onClick={() => selectDay(i)}
                     className={`min-w-[58px] shrink-0 rounded-[14px] border px-1.5 py-2.5 text-center text-[12px] transition-all ${
                       dayIdx === i
-                        ? "border-brand-blue-2 bg-brand-blue/15 text-brand-blue-2"
+                        ? "border-brand-green bg-brand-green/15 text-brand-green"
                         : "border-border text-muted"
                     }`}
                   >
                     {d}
-                    <span className={`mt-0.5 block text-[15px] font-bold ${dayIdx === i ? "text-brand-blue-2" : "text-ink"}`}>
+                    <span className={`mt-0.5 block text-[15px] font-bold ${dayIdx === i ? "text-brand-green" : "text-ink"}`}>
                       {dateNums[i]}
                     </span>
                   </button>
