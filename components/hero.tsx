@@ -4,7 +4,6 @@ import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "@/components/animated-counter";
-import { HeroRacketBall } from "@/components/hero-racket-ball";
 
 // The 3D racket needs a browser/WebGL context, so it's client-only and
 // loaded lazily. While it loads, the lime-themed 2D racket/ball graphic
