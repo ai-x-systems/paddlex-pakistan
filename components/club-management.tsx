@@ -39,7 +39,7 @@ export function ClubManagement() {
                   key={c.label}
                   className="flex items-center gap-2 rounded-xl border border-border-soft bg-bg-1 px-3 py-2.5 text-[12.5px] text-muted"
                 >
-                  <c.icon className="h-3.5 w-3.5 shrink-0 text-brand-blue-2" />
+                  <c.icon className="h-3.5 w-3.5 shrink-0 text-brand-green" />
                   {c.label}
                 </div>
               ))}
@@ -69,7 +69,7 @@ export function ClubManagement() {
               {[38, 52, 34, 66, 58, 80, 90].map((h, i) => (
                 <div
                   key={i}
-                  className="flex-1 rounded-t bg-gradient-to-b from-brand-blue-2 to-brand-blue opacity-90"
+                  className="flex-1 rounded-t bg-gradient-to-b from-brand-green to-brand-green/60 opacity-90"
                   style={{ height: `${h}%` }}
                 />
               ))}
