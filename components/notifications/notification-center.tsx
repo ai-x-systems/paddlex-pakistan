@@ -33,7 +33,7 @@ const receptionNotifs: Notif[] = [
 
 const toneClasses: Record<Notif["tone"], string> = {
   green: "bg-brand-green/10 text-brand-green",
-  blue: "bg-brand-blue/15 text-brand-blue-2",
+  blue: "bg-white/10 text-muted",
   red: "bg-red-400/10 text-red-400",
 };
 
@@ -57,7 +57,7 @@ export function NotificationCenter() {
         <button
           onClick={() => setTab("customer")}
           className={`rounded-full border px-4 py-2 text-[13px] font-medium transition-all ${
-            tab === "customer" ? "border-brand-blue-2 bg-brand-blue/15 text-brand-blue-2" : "border-border text-muted"
+            tab === "customer" ? "border-brand-green bg-brand-green/15 text-brand-green" : "border-border text-muted"
           }`}
         >
           Customer view
@@ -65,7 +65,7 @@ export function NotificationCenter() {
         <button
           onClick={() => setTab("reception")}
           className={`rounded-full border px-4 py-2 text-[13px] font-medium transition-all ${
-            tab === "reception" ? "border-brand-blue-2 bg-brand-blue/15 text-brand-blue-2" : "border-border text-muted"
+            tab === "reception" ? "border-brand-green bg-brand-green/15 text-brand-green" : "border-border text-muted"
           }`}
         >
           Reception view
