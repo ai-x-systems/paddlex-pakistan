@@ -21,7 +21,7 @@ const accountLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border-soft pb-24 pt-14 md:pb-28">
+    <footer className="border-t border-border-soft pb-40 pt-14">
       <div className="mx-auto max-w-6xl px-5 md:px-7">
         <div className="mb-11 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.85fr_0.85fr_1fr_0.85fr]">
           <div>
@@ -97,9 +97,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border-soft pt-6 text-xs text-muted-2">
+        <div className="flex flex-col items-start gap-2 border-t border-border-soft pt-6 text-xs text-muted-2 sm:flex-row sm:items-center sm:justify-between">
           <span>© 2026 Padel X Pakistan. All rights reserved.</span>
-          <Link href="/admin" className="font-mono-brand transition-colors hover:text-muted">
+          <Link href="/admin" className="font-mono-brand text-muted-2 transition-colors hover:text-brand-green">
             Admin
           </Link>
         </div>
