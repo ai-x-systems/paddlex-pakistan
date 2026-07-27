@@ -110,7 +110,7 @@ export function WalletView() {
           className="rounded-2xl border border-border bg-surface p-5.5"
         >
           <div className="mb-4 flex items-center gap-2 text-[13px] font-semibold">
-            <Building2 className="h-4 w-4 text-brand-blue-2" /> Partner Discounts
+            <Building2 className="h-4 w-4 text-brand-green" /> Partner Discounts
           </div>
           <div className="flex flex-col gap-2.5">
             {partnerDiscounts.map((p) => (
