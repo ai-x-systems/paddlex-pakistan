@@ -72,7 +72,7 @@ export function JoinMatch() {
                 </div>
 
                 <div className="mb-1.5 flex items-center gap-2 text-[15px] font-bold">
-                  <MapPin className="h-4 w-4 text-brand-blue-2" />
+                  <MapPin className="h-4 w-4 text-brand-green" />
                   {m.court}
                 </div>
                 <div className="mb-5 flex items-center gap-2 text-[13px] text-muted">
@@ -87,7 +87,7 @@ export function JoinMatch() {
                   </span>
                 </div>
                 <div className="mb-5 h-1.5 overflow-hidden rounded-full bg-border-soft">
-                  <div className="h-full rounded-full bg-gradient-to-r from-brand-blue to-brand-green" style={{ width: `${pct}%` }} />
+                  <div className="h-full rounded-full bg-gradient-to-r from-brand-green/50 to-brand-green" style={{ width: `${pct}%` }} />
                 </div>
 
                 <Button
