@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
-import { HeroRacketBall } from "@/components/hero-racket-ball";
 
 // Real 3D padel racket + ball — a faithful port of the reference build's
 // vanilla Three.js hero (js/hero3d.js): the same oval bezier head outline,
