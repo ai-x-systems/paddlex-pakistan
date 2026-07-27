@@ -26,7 +26,7 @@ function TabsTrigger({
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
       className={cn(
-        "rounded-full border border-border px-5 py-2.5 text-sm font-semibold text-muted transition-all data-[state=active]:border-brand-blue data-[state=active]:bg-brand-blue data-[state=active]:text-white",
+        "rounded-full border border-border px-5 py-2.5 text-sm font-semibold text-muted transition-all data-[state=active]:border-brand-green data-[state=active]:bg-brand-green data-[state=active]:text-[#0a0a0a]",
         className
       )}
       {...props}
