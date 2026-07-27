@@ -18,7 +18,7 @@ export function Gallery() {
       <div className="mx-auto max-w-6xl px-5 md:px-7">
         <SectionHead
           eyebrow="Gallery"
-          title="The club, in frame."
+          title="Life at Padel X."
           sub="Placeholder set — every tile is a drop-in slot for the client's real photography."
         />
 
