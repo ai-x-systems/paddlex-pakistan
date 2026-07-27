@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
+import { Marquee } from "@/components/marquee";
 import { FacilityHighlights } from "@/components/facility-highlights";
 import { Facilities } from "@/components/facilities";
 import { WhyPadelX } from "@/components/why-padelx";
@@ -40,6 +41,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <Marquee />
         <FacilityHighlights />
         <div className="mx-auto h-px max-w-6xl bg-gradient-to-r from-transparent via-border to-transparent" />
         <Facilities />
