@@ -127,17 +127,90 @@ function useHaloTexture() {
   }, []);
 }
 
+// Futsal/football — dark ink base with lime pentagon patches, same palette
+// language as the racket (INK + LIME) rather than a literal black/white ball.
+function useFutsalTexture() {
+  return useMemo(() => {
+    if (typeof document === "undefined") return null;
+    const size = 256;
+    const c = document.createElement("canvas");
+    c.width = size;
+    c.height = size;
+    const g = c.getContext("2d");
+    if (!g) return null;
+    g.fillStyle = INK;
+    g.fillRect(0, 0, size, size);
+    g.fillStyle = LIME;
+    const pentagon = (cx: number, cy: number, r: number) => {
+      g.beginPath();
+      for (let i = 0; i < 5; i++) {
+        const a = -Math.PI / 2 + (i * 2 * Math.PI) / 5;
+        const x = cx + Math.cos(a) * r;
+        const y = cy + Math.sin(a) * r;
+        if (i === 0) g.moveTo(x, y);
+        else g.lineTo(x, y);
+      }
+      g.closePath();
+      g.fill();
+    };
+    pentagon(size * 0.5, size * 0.32, size * 0.13);
+    pentagon(size * 0.22, size * 0.62, size * 0.11);
+    pentagon(size * 0.78, size * 0.62, size * 0.11);
+    pentagon(size * 0.5, size * 0.88, size * 0.09);
+    const tex = new THREE.CanvasTexture(c);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    tex.needsUpdate = true;
+    return tex;
+  }, []);
+}
+
+// Pickleball — genuinely perforated in real life, so the texture leans into
+// that with a dense dot grid rather than seam lines, pale lime base.
+function usePickleballTexture() {
+  return useMemo(() => {
+    if (typeof document === "undefined") return null;
+    const size = 256;
+    const c = document.createElement("canvas");
+    c.width = size;
+    c.height = size;
+    const g = c.getContext("2d");
+    if (!g) return null;
+    g.fillStyle = "#E9FF9A";
+    g.fillRect(0, 0, size, size);
+    g.fillStyle = "rgba(16,18,20,0.55)";
+    const rows = 8;
+    const cols = 8;
+    for (let row = 0; row < rows; row++) {
+      for (let col = 0; col < cols; col++) {
+        const x = ((col + 0.5) / cols) * size;
+        const y = ((row + 0.5) / rows) * size;
+        g.beginPath();
+        g.arc(x, y, size * 0.022, 0, Math.PI * 2);
+        g.fill();
+      }
+    }
+    const tex = new THREE.CanvasTexture(c);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    tex.needsUpdate = true;
+    return tex;
+  }, []);
+}
+
 function RacketScene() {
   const { size } = useThree();
 
   const racketRef = useRef<THREE.Group>(null);
   const ballRef = useRef<THREE.Mesh>(null);
+  const futsalRef = useRef<THREE.Mesh>(null);
+  const pickleballRef = useRef<THREE.Mesh>(null);
   const haloRef = useRef<THREE.Mesh>(null);
 
   const faceGeometry = useMemo(() => buildFaceGeometry(), []);
   const bumperGeometry = useMemo(() => buildBumperGeometry(), []);
   const floorGeometry = useMemo(() => buildFloorGeometry(), []);
   const haloTexture = useHaloTexture();
+  const futsalTexture = useFutsalTexture();
+  const pickleballTexture = usePickleballTexture();
 
   const darkMat = useMemo(
     () => new THREE.MeshStandardMaterial({ color: INK, metalness: 0.45, roughness: 0.38 }),
@@ -169,6 +242,28 @@ function RacketScene() {
         emissiveIntensity: 0.22,
       }),
     []
+  );
+  const futsalMat = useMemo(
+    () =>
+      new THREE.MeshStandardMaterial({
+        map: futsalTexture ?? undefined,
+        color: futsalTexture ? "#ffffff" : INK,
+        roughness: 0.5,
+        metalness: 0.15,
+      }),
+    [futsalTexture]
+  );
+  const pickleballMat = useMemo(
+    () =>
+      new THREE.MeshStandardMaterial({
+        map: pickleballTexture ?? undefined,
+        color: pickleballTexture ? "#ffffff" : "#E9FF9A",
+        roughness: 0.6,
+        metalness: 0.02,
+        emissive: LIME,
+        emissiveIntensity: 0.12,
+      }),
+    [pickleballTexture]
   );
 
   const reducedMotion = useRef(false);
@@ -249,6 +344,32 @@ function RacketScene() {
       ballRef.current.scale.setScalar(scale * 1.3);
     }
 
+    // Futsal + pickleball: same orbit/bob formula as the padel ball, offset
+    // in phase and radius so all three keep a clean gap between them.
+    if (futsalRef.current && racketRef.current) {
+      const orbit = t * 0.85 + 2.35;
+      const r = view.current.orbitR * 0.86;
+      futsalRef.current.position.set(
+        racketRef.current.position.x + Math.cos(orbit) * r,
+        0.75 + Math.sin(t * 1.15 + 1.4) * 0.38,
+        Math.sin(orbit) * r * 0.8
+      );
+      futsalRef.current.rotation.y = t * 0.5;
+      futsalRef.current.rotation.x = t * 0.3;
+      futsalRef.current.scale.setScalar(scale * 1.35);
+    }
+    if (pickleballRef.current && racketRef.current) {
+      const orbit = t * 0.85 + 4.5;
+      const r = view.current.orbitR * 0.7;
+      pickleballRef.current.position.set(
+        racketRef.current.position.x + Math.cos(orbit) * r,
+        0.75 + Math.sin(t * 1.15 + 2.6) * 0.38,
+        Math.sin(orbit) * r * 0.8
+      );
+      pickleballRef.current.rotation.y = t * 0.7;
+      pickleballRef.current.scale.setScalar(scale * 0.95);
+    }
+
     if (haloRef.current && racketRef.current) {
       haloRef.current.position.y = racketRef.current.position.y;
       haloRef.current.position.x = racketRef.current.position.x;
@@ -283,6 +404,14 @@ function RacketScene() {
 
       <mesh ref={ballRef} material={ballMat}>
         <sphereGeometry args={[0.23, 24, 16]} />
+      </mesh>
+
+      <mesh ref={futsalRef} material={futsalMat}>
+        <sphereGeometry args={[0.24, 24, 16]} />
+      </mesh>
+
+      <mesh ref={pickleballRef} material={pickleballMat}>
+        <sphereGeometry args={[0.2, 24, 16]} />
       </mesh>
 
       <mesh ref={haloRef} position={[0, 0.4, -2.4]}>
@@ -336,6 +465,12 @@ export function Hero3DCenterpiece() {
   useEffect(() => {
     if (shouldSkip3D()) setFailed(true);
   }, []);
+
+  if (failed) {
+    return (
+      <div className="absolute right-[12%] top-[18%] h-40 w-40 rounded-full bg-brand-green/10 blur-3xl" />
+    );
+  }
 
   return (
     <div id="hero-3d-mount" className="absolute inset-0">
