@@ -13,8 +13,6 @@
   --color-ink: #f5f6f7;
   --color-muted: #9a9aa4;
   --color-muted-2: #66666f;
-  --color-brand-blue: #2563eb;
-  --color-brand-blue-2: #4c82ff;
   --color-brand-green: #c8ff00;
 }
 
@@ -22,6 +20,7 @@
   --animate-accordion-down: accordion-down 0.25s ease-out;
   --animate-accordion-up: accordion-up 0.25s ease-out;
   --animate-hero-scroll-drop: hero-scroll-drop 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  --animate-marquee-scroll: marquee-scroll 34s linear infinite;
 }
 
 @keyframes accordion-down {
@@ -37,6 +36,9 @@
   50% { transform: scaleY(1); transform-origin: top; }
   51% { transform-origin: bottom; }
   100% { transform: scaleY(0); transform-origin: bottom; }
+}
+@keyframes marquee-scroll {
+  to { transform: translateX(-33.333%); }
 }
 
 html {
