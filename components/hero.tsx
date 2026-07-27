@@ -6,11 +6,17 @@ import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "@/components/animated-counter";
 
 // The 3D racket needs a browser/WebGL context, so it's client-only and
-// loaded lazily. While it loads, the lime-themed 2D racket/ball graphic
-// renders instead, so the hero never shows a gap.
+// loaded lazily. While it loads, a plain glow placeholder renders instead —
+// no 2D racket graphic anywhere, 3D only.
 const Hero3DCenterpiece = dynamic(
   () => import("@/components/hero-3d-centerpiece").then((m) => m.Hero3DCenterpiece),
   {
+    ssr: false,
+    loading: () => (
+      <div className="absolute inset-0">
+        <div className="absolute right-[12%] top-[18%] h-40 w-40 rounded-full bg-brand-green/10 blur-3xl" />
+      </div>
+    ),
   }
 );
 
@@ -23,6 +29,13 @@ export function Hero() {
           this, the same way the reference's .hero__stage is a position:
           absolute; inset:0 background behind the text, not a boxed graphic. */}
       <Hero3DCenterpiece />
+
+      {/* Mobile-only scrim: on mobile the text is centered over the same
+          full-bleed area the racket/glow occupy (desktop keeps them apart
+          via the 62%-width text column + racket shifted right), so this
+          keeps the paragraph readable against whatever's happening in 3D
+          behind it. */}
+      <div className="pointer-events-none absolute inset-x-0 top-[64px] z-[5] h-[420px] bg-gradient-to-b from-bg/75 via-bg/55 to-transparent lg:hidden" />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-5 md:px-7">
         <div className="mx-auto max-w-3xl text-center lg:mx-0 lg:max-w-[62%] lg:text-left">
@@ -49,7 +62,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mx-auto mb-9 max-w-lg text-[16px] leading-relaxed text-muted md:text-[19px] lg:mx-0"
+            className="mx-auto mb-9 max-w-lg text-[16px] leading-relaxed text-white/80 md:text-[19px] md:text-muted lg:mx-0"
           >
             Eight floodlit padel courts, dedicated pickleball courts, and a full futsal ground
             &mdash; open till 2 AM, built for players who take their game seriously.
