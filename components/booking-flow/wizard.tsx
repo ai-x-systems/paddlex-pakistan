@@ -101,7 +101,7 @@ export function BookingWizard() {
             <div key={label} className="flex shrink-0 items-center gap-1.5">
               <div
                 className={`flex h-7 w-7 items-center justify-center rounded-full font-mono-brand text-[11px] font-bold transition-colors ${
-                  active ? "bg-brand-green text-bg" : done ? "bg-brand-blue-2 text-white" : "border border-border text-muted-2"
+                  active ? "bg-brand-green text-bg" : done ? "bg-brand-green/60 text-[#0a0a0a]" : "border border-border text-muted-2"
                 }`}
               >
                 {done ? <Check className="h-3.5 w-3.5" /> : n}
@@ -151,7 +151,7 @@ export function BookingWizard() {
                       key={d}
                       onClick={() => { setDayIdx(i); setSlot(null); }}
                       className={`rounded-2xl border p-3 text-center transition-all ${
-                        dayIdx === i ? "border-brand-blue-2 bg-brand-blue/15 text-brand-blue-2" : "border-border text-muted"
+                        dayIdx === i ? "border-brand-green bg-brand-green/15 text-brand-green" : "border-border text-muted"
                       }`}
                     >
                       <div className="text-[11px]">{d}</div>
@@ -272,7 +272,7 @@ export function BookingWizard() {
                       key={m.k}
                       onClick={() => setPayMethod(m.k)}
                       className={`flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-[12.5px] font-medium transition-all ${
-                        payMethod === m.k ? "border-brand-blue-2 bg-brand-blue/15 text-brand-blue-2" : "border-border text-muted"
+                        payMethod === m.k ? "border-brand-green bg-brand-green/15 text-brand-green" : "border-border text-muted"
                       }`}
                     >
                       <m.icon className="h-3.5 w-3.5" /> {m.label}
@@ -473,7 +473,7 @@ function SummaryRow({ label, value }: { label: string; value: string }) {
 function NotifRow({ icon: Icon, label, sub }: { icon: React.ComponentType<{ className?: string }>; label: string; sub: string }) {
   return (
     <div className="flex items-center gap-3 rounded-lg border border-border-soft px-3.5 py-2.5">
-      <Icon className="h-4 w-4 text-brand-blue-2" />
+      <Icon className="h-4 w-4 text-brand-green" />
       <div className="text-left">
         <div className="text-[12.5px] font-medium">{label}</div>
         <div className="text-[11px] text-muted-2">{sub}</div>
