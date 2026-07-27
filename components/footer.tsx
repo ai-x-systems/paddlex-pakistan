@@ -21,7 +21,7 @@ const accountLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border-soft py-14">
+    <footer className="border-t border-border-soft pb-24 pt-14 md:pb-28">
       <div className="mx-auto max-w-6xl px-5 md:px-7">
         <div className="mb-11 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.85fr_0.85fr_1fr_0.85fr]">
           <div>
@@ -69,7 +69,7 @@ export function Footer() {
             <div className="mb-4 font-mono-brand text-xs uppercase tracking-wider text-muted-2">Visit</div>
             <div className="flex flex-col gap-2.5">
               <span className="text-[13.5px] text-muted">Karachi, Pakistan</span>
-              <span className="text-[13.5px] text-muted">+92 300 000 0000</span>
+              <span className="text-[13.5px] text-muted">0300-7233591</span>
               <span className="text-[13.5px] text-muted">hello@padelxpakistan.pk</span>
             </div>
           </div>
@@ -86,7 +86,7 @@ export function Footer() {
                 <Instagram className="h-[15px] w-[15px]" />
               </a>
               <a
-                href="https://wa.me/923000000000"
+                href="https://wa.me/923007233591"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-[34px] w-[34px] items-center justify-center rounded-full border border-border text-muted transition-all hover:border-brand-green hover:text-brand-green"
