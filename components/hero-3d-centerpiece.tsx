@@ -337,8 +337,6 @@ export function Hero3DCenterpiece() {
     if (shouldSkip3D()) setFailed(true);
   }, []);
 
-  if (failed) return <HeroRacketBall />;
-
   return (
     <div id="hero-3d-mount" className="absolute inset-0">
       <Canvas
