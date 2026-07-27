@@ -11,12 +11,6 @@ import { AnimatedCounter } from "@/components/animated-counter";
 const Hero3DCenterpiece = dynamic(
   () => import("@/components/hero-3d-centerpiece").then((m) => m.Hero3DCenterpiece),
   {
-    ssr: false,
-    loading: () => (
-      <div className="absolute inset-0">
-        <HeroRacketBall />
-      </div>
-    ),
   }
 );
 
