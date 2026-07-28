@@ -38,7 +38,7 @@ export function FacilityHighlights() {
           className="grid grid-cols-2 divide-y divide-border rounded-[18px] border border-border bg-bg-1 sm:grid-cols-4 sm:divide-y-0 sm:divide-x"
         >
           {[0, 1, 2, 3].map((col) => (
-            <div key={col} className="flex flex-col gap-8 p-6 md:p-7">
+            <div key={col} className="flex flex-col justify-between gap-8 p-6 md:p-7">
               {items.slice(col * 2, col * 2 + 2).map((it) => (
                 <div key={it.title}>
                   <it.icon className="mb-3.5 h-5 w-5 text-brand-green" strokeWidth={1.8} />
