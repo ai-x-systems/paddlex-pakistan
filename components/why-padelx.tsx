@@ -19,22 +19,27 @@ export function WhyPadelX() {
         <SectionHead eyebrow="Why Padel X" title="Built like a product, run like a club." />
 
         <div className="grid grid-cols-1 gap-px overflow-hidden rounded-[18px] border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-          {items.map((it, i) => (
-            <motion.div
-              key={it.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="bg-bg-1 p-7 transition-colors duration-300 hover:bg-surface-2"
-            >
-              <div className="mb-4.5 flex h-[42px] w-[42px] items-center justify-center rounded-xl bg-brand-green/10 text-brand-green">
-                <it.icon className="h-5 w-5" strokeWidth={1.8} />
-              </div>
-              <div className="mb-2 text-[16px] font-bold">{it.title}</div>
-              <div className="text-[14px] leading-relaxed text-muted">{it.desc}</div>
-            </motion.div>
-          ))}
+          {items.map((it, i) => {
+            const isLast = i === items.length - 1;
+            return (
+              <motion.div
+                key={it.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.5, delay: i * 0.06 }}
+                className={`bg-bg-1 p-7 transition-colors duration-300 hover:bg-surface-2 ${
+                  isLast ? "sm:col-span-2" : ""
+                }`}
+              >
+                <div className="mb-4.5 flex h-[42px] w-[42px] items-center justify-center rounded-xl bg-brand-green/10 text-brand-green">
+                  <it.icon className="h-5 w-5" strokeWidth={1.8} />
+                </div>
+                <div className="mb-2 text-[16px] font-bold">{it.title}</div>
+                <div className="text-[14px] leading-relaxed text-muted">{it.desc}</div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
